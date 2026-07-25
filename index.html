@@ -128,7 +128,7 @@
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": "Milan Hubený — malířské a zednické práce",
-  "image": "https://malir-zednik-praha.cz/logo.png",
+  "image": "https://malir-zednik-praha.cz/mh_logo.png",
   "url": "https://malir-zednik-praha.cz",
   "telephone": "+420700000000",
   "email": "info@malir-zednik-praha.cz",
@@ -278,9 +278,8 @@
     overflow:hidden;
   }
   .hero .wrap{position:relative; z-index:1; text-align:center; display:flex; flex-direction:column; align-items:center;}
-  .hero-eyebrow{margin-bottom:28px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
   .hero-icon{
-    width:64px;
+    width:100px;
     height:auto;
     margin:0 auto 24px;
   }
@@ -289,9 +288,6 @@
     flex-direction:column;
     align-items:center;
     margin-bottom:36px;
-  }
-  .h1-eyebrow{
-    margin-bottom:22px;
   }
   .h1-name{
     font-family:'Big Shoulders Display', sans-serif;
@@ -315,6 +311,13 @@
     font-size:clamp(13px, 2vw, 17px);
     color:var(--ink-soft);
     white-space:nowrap;
+  }
+  .h1-badges{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:24px;
   }
   .hero-lede{
     max-width:520px;
@@ -653,7 +656,7 @@
 
 <header>
   <div class="nav">
-    <a href="#" class="brand"><img src="mh_favicon_512x512.png" alt="Milan Hubený" class="logo-img"></a>
+    <a href="#" class="brand"><img src="mh_favicon.png" alt="Milan Hubený" class="logo-img"></a>
     <nav class="links">
       <a href="#sluzby">Služby</a>
       <a href="#realizace">Realizace</a>
@@ -671,13 +674,15 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="hero-eyebrow"><span class="tape alt">30 let zkušeností</span></div>
     <img src="mh_logo.png" alt="Milan Hubený — malířské a zednické práce" class="hero-icon">
     <h1 class="brand-h1">
-      <span class="tape h1-eyebrow">Praha a okolí</span>
       <span class="h1-name">Milan Hubený</span>
       <span class="h1-line" aria-hidden="true"></span>
       <span class="h1-tagline">Malířské a zednické práce</span>
+      <span class="h1-badges">
+        <span class="tape">Praha a okolí</span>
+        <span class="tape alt">30 let zkušeností</span>
+      </span>
     </h1>
     <p class="hero-lede">Vymalování bytu, nátěr fasády nebo drobná zednická oprava. Čisté provedení, domluvený termín a jasná cena předem — pro domácnosti i firmy po celé Praze.</p>
     <div class="cta-row">
@@ -959,6 +964,10 @@
           <a href="mailto:info@malir-zednik-praha.cz">info@malir-zednik-praha.cz</a>
         </div>
         <div class="contact-line">
+          <span class="label">Web</span>
+          <a href="https://malir-zednik-praha.cz">malir-zednik-praha.cz</a>
+        </div>
+        <div class="contact-line">
           <span class="label">Působnost</span>
           <strong>Praha a okolí do 30 km</strong>
         </div>
@@ -990,7 +999,6 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <div class="brand"><img src="mh_favicon_512x512.png" alt="Milan Hubený" class="logo-img footer-logo"></div>
     <p>© <span id="year"></span> Milan Hubený — malířské a zednické práce Praha · malir-zednik-praha.cz</p>
   </div>
 </footer>
