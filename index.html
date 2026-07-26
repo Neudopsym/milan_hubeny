@@ -16,9 +16,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="mh_favicon_32x32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="mh_favicon_512x512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="mh_favicon_512x512.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Big+Shoulders+Text:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -149,6 +147,77 @@
 }
 </script>
 <style>
+  @font-face{
+    font-family:'Montserrat';
+    src:url('fonts/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Montserrat';
+    src:url('fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Montserrat';
+    src:url('fonts/Montserrat-ExtraBold.ttf') format('truetype');
+    font-weight:800;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Montserrat';
+    src:url('fonts/Montserrat-Black.ttf') format('truetype');
+    font-weight:900;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Poppins';
+    src:url('fonts/Poppins-Medium.ttf') format('truetype');
+    font-weight:500;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Poppins';
+    src:url('fonts/Poppins-SemiBold.ttf') format('truetype');
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Poppins';
+    src:url('fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Work Sans';
+    src:url('fonts/WorkSans-Regular.ttf') format('truetype');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Work Sans';
+    src:url('fonts/WorkSans-Medium.ttf') format('truetype');
+    font-weight:500;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Work Sans';
+    src:url('fonts/WorkSans-SemiBold.ttf') format('truetype');
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+
   :root{
     --bg: #FFFFFF;
     --bg-alt: #FFFFFF;
@@ -211,7 +280,7 @@
     position:relative;
     background:var(--card);
     color:var(--blue-deep);
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Work Sans', sans-serif;
     font-size:12px;
     font-weight:500;
     letter-spacing:0.14em;
@@ -246,7 +315,7 @@
   }
   nav.links{display:flex; gap:28px;}
   nav.links a{
-    font-family:'Big Shoulders Text', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-weight:600;
     font-size:15px;
     text-transform:uppercase;
@@ -256,7 +325,7 @@
   }
   nav.links a:hover, nav.links a:focus-visible{color:var(--blue);}
   .nav-call{
-    font-family:'Big Shoulders Text', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-weight:700;
     font-size:15px;
     text-transform:uppercase;
@@ -290,7 +359,7 @@
     margin-bottom:36px;
   }
   .h1-name{
-    font-family:'Big Shoulders Display', sans-serif;
+    font-family:'Montserrat', sans-serif;
     font-weight:800;
     text-transform:uppercase;
     letter-spacing:0.01em;
@@ -305,7 +374,7 @@
     margin:16px 0;
   }
   .h1-tagline{
-    font-family:'Big Shoulders Text', sans-serif;
+    font-family:'Montserrat', sans-serif;
     font-weight:600;
     text-transform:uppercase;
     font-size:clamp(13px, 2vw, 17px);
@@ -327,7 +396,7 @@
   }
   .cta-row{display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
   .btn{
-    font-family:'Big Shoulders Text', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-weight:700;
     font-size:16px;
     text-transform:uppercase;
@@ -349,7 +418,7 @@
   .btn-whatsapp svg{width:18px; height:18px; flex:none;}
   .response-note{
     margin-top:18px;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Work Sans', sans-serif;
     font-size:13px;
     color:var(--ink-soft);
     letter-spacing:0.03em;
@@ -411,7 +480,7 @@
   }
   .process-step{padding-top:18px; border-top:2px solid var(--ink);}
   .process-num{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Work Sans', sans-serif;
     font-size:13px;
     color:var(--blue);
     letter-spacing:0.08em;
@@ -419,7 +488,7 @@
     margin-bottom:10px;
   }
   .process-step h3{
-    font-family:'Big Shoulders Text', sans-serif;
+    font-family:'Montserrat', sans-serif;
     text-transform:uppercase;
     font-size:19px;
     font-weight:700;
@@ -443,7 +512,7 @@
     background:
       repeating-linear-gradient(135deg, var(--card), var(--card) 10px, var(--bg-alt) 10px, var(--bg-alt) 20px);
     color:var(--ink-soft);
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Work Sans', sans-serif;
     font-size:12px;
     letter-spacing:0.05em;
     text-transform:uppercase;
@@ -465,7 +534,7 @@
   .fact{border-top:1px solid var(--line); padding-top:14px;}
   .fact strong{
     display:block;
-    font-family:'Big Shoulders Display', sans-serif;
+    font-family:'Montserrat', sans-serif;
     font-size:34px;
     color:var(--blue);
   }
@@ -486,7 +555,7 @@
     justify-content:space-between;
     gap:20px;
     padding:22px 4px;
-    font-family:'Big Shoulders Text', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-weight:700;
     font-size:19px;
     text-transform:uppercase;
@@ -519,7 +588,7 @@
     margin-top:28px;
     font-size:14px;
     color:var(--ink-soft);
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Work Sans', sans-serif;
     max-width:680px;
   }
 
@@ -542,19 +611,19 @@
   }
   .contact-line:first-child{border-top:none;}
   .contact-line span.label{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Work Sans', sans-serif;
     font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
     color:var(--ink-soft);
   }
   .contact-line a, .contact-line strong{
-    font-family:'Big Shoulders Text', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-weight:700; font-size:19px;
   }
   .contact-line a:hover{color:var(--blue);}
 
   form{display:flex; flex-direction:column; gap:14px;}
   form label{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Work Sans', sans-serif;
     font-size:12px; text-transform:uppercase; letter-spacing:0.06em;
     color:var(--ink-soft); margin-bottom:6px; display:block;
   }
@@ -576,7 +645,7 @@
   form button{
     align-self:flex-start;
     border:none; cursor:pointer;
-    font-family:'Big Shoulders Text', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-weight:700; font-size:16px;
     text-transform:uppercase; letter-spacing:0.04em;
     background:var(--blue); color:var(--bg);
@@ -597,7 +666,7 @@
     margin-bottom:14px;
   }
   .billing-inner .label{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Work Sans', sans-serif;
     font-size:11px;
     text-transform:uppercase;
     letter-spacing:0.08em;
@@ -610,7 +679,7 @@
   }
   .billing-grid > div{display:flex; flex-direction:column; gap:4px;}
   .billing-grid strong{
-    font-family:'Big Shoulders Text', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-weight:600;
     font-size:16px;
     color:var(--ink);
@@ -684,7 +753,7 @@
         <span class="tape alt">30 let zkušeností</span>
       </span>
     </h1>
-    <p class="hero-lede">Vymalování bytu, nátěr fasády nebo drobná zednická oprava. Čisté provedení, domluvený termín a jasná cena předem — pro domácnosti i firmy po celé Praze.</p>
+    <p class="hero-lede">Malování bytů, nátěry fasád i drobné zednické práce. Vše osobně, čistě, v domluveném termínu a za předem stanovenou cenu – pro domácnosti i firmy v Praze a okolí.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#kontakt">Poptat práci</a>
       <a class="btn btn-ghost" href="tel:+420700000000">Zavolat</a>
@@ -699,9 +768,8 @@
 <section class="services" id="sluzby">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tape alt">Co dělám</span>
       <h2>Služby</h2>
-      <p>Dvě řemesla, jeden kontakt. Většinu zakázek zvládnu bez nutnosti shánět dalšího řemeslníka.</p>
+      <p>Dvě řemesla, jeden kontakt. Malování, opravy i dokončovací práce vyřeším osobně od začátku do konce – bez nutnosti shánět dalšího řemeslníka.</p>
     </div>
     <div class="swatch-grid">
       <div class="swatch reveal">
@@ -733,29 +801,28 @@
 <section id="postup">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tape">Jak to probíhá</span>
-      <h2>Od poptávky k výsledku</h2>
+      <h2>Jak probíhá spolupráce</h2>
     </div>
     <div class="process-grid">
       <div class="process-step reveal">
         <span class="process-num">01</span>
         <h3>Poptávka</h3>
-        <p>Napíšete nebo zavoláte, popíšete rozsah práce a termín.</p>
+        <p>Napíšete nebo zavoláte, popíšete, co potřebujete udělat, a domluvíme další postup.</p>
       </div>
       <div class="process-step reveal">
         <span class="process-num">02</span>
         <h3>Prohlídka</h3>
-        <p>Přijedu se podívat na místo, nezávazně a zdarma.</p>
+        <p>Přijedu se podívat na místo, upřesníme rozsah práce a navrhnu nejlepší řešení.</p>
       </div>
       <div class="process-step reveal">
         <span class="process-num">03</span>
-        <h3>Nabídka</h3>
-        <p>Dostanete jasnou cenu a termín realizace předem.</p>
+        <h3>Domluva ceny a termínu</h3>
+        <p>Dostanete jasnou cenu a termín realizace předem – bez nepříjemných překvapení.</p>
       </div>
       <div class="process-step reveal">
         <span class="process-num">04</span>
         <h3>Realizace</h3>
-        <p>Práci dokončím čistě, na klíč a v domluveném termínu.</p>
+        <p>Práci provedu osobně, čistě a v dohodnutém termínu.</p>
       </div>
     </div>
   </div>
@@ -764,7 +831,6 @@
 <section id="realizace">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tape alt">Reference</span>
       <h2>Realizace</h2>
       <p>Fotky z posledních zakázek — postupně doplním.</p>
     </div>
@@ -782,10 +848,9 @@
 <section class="about" id="o-mne">
   <div class="wrap about-inner">
     <div class="reveal">
-      <span class="tape">O mně</span>
       <h2>Řemeslo, na kterém si dám záležet</h2>
-      <p>Malováním a zednickými pracemi se živím v Praze a okolí. Zakázky beru od jednotlivých místností po kompletní vymalování a drobné stavební úpravy bytů a domů.</p>
-      <p>Zakládám si na čistém provedení, domluveném termínu a ceně, která sedí od začátku do konce — bez překvapení na faktuře.</p>
+      <p>Jmenuji se Milan Hubený a již více než 30 let pomáhám lidem v Praze a okolí tvořit domovy, do kterých je radost se vracet. Specializuji se na malování, zednické práce a drobné úpravy bytů a domů – vše provádím osobně, pečlivě a s důrazem na čistý výsledek.</p>
+      <p>Zakládám si na poctivém přístupu, dodržování domluvených termínů a férové ceně bez nepříjemných překvapení na konci zakázky. Pomáhám nejen domácnostem, ale také firmám s úpravami jejich prostor.</p>
     </div>
     <div class="about-facts reveal">
       <div class="fact"><strong>30 let</strong><span>Zkušeností v oboru</span></div>
@@ -798,7 +863,6 @@
 <section id="cenik">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tape alt">Ceník</span>
       <h2>Cena dle rozsahu práce</h2>
       <p>Přesnou cenu ovlivňuje stav stěn, velikost prostoru a zvolené materiály — proto dávám konkrétní nabídku vždy až po bezplatné prohlídce, ne odhadem po telefonu.</p>
     </div>
@@ -829,7 +893,6 @@
 <section id="faq">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tape">Časté otázky</span>
       <h2>Než zavoláte řemeslníka</h2>
       <p>Odpovědi na to, co lidi nejčastěji zajímá ještě před tím, než si domluví malíře nebo zedníka.</p>
     </div>
@@ -929,7 +992,6 @@
 <section id="kontakt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tape alt">Kontakt</span>
       <h2>Poptat práci</h2>
       <p>Napište pár řádků o tom, co potřebujete udělat — ozvu se zpět s termínem prohlídky.</p>
     </div>
@@ -994,7 +1056,7 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <p>© <span id="year"></span> Milan Hubený — malířské a zednické práce Praha · malir-zednik-praha.cz</p>
+    <p>© <span id="year"></span> Milan Hubený | Malíř a zedník Praha | Drobné rekonstrukce bytů | Praha a okolí</p>
   </div>
 </footer>
 
