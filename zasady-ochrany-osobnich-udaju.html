@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zásady ochrany osobních údajů | Milan Hubený – malíř a zedník Praha</title>
+<meta name="description" content="Zásady ochrany osobních údajů webu malir-zednik-praha.cz. Informace o zpracování osobních údajů odeslaných přes kontaktní formulář.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://malir-zednik-praha.cz/zasady-ochrany-osobnich-udaju.html">
+<link rel="icon" type="image/png" sizes="16x16" href="mh_favicon_16x16.png?v=2">
+<link rel="icon" type="image/png" sizes="32x32" href="mh_favicon_32x32.png?v=2">
+<link rel="icon" type="image/png" sizes="512x512" href="mh_favicon_512x512.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="mh_favicon_512x512.png?v=2">
+<style>
+  @font-face{
+    font-family:'Montserrat';
+    src:url('fonts/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Montserrat';
+    src:url('fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Montserrat';
+    src:url('fonts/Montserrat-ExtraBold.ttf') format('truetype');
+    font-weight:800;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Montserrat';
+    src:url('fonts/Montserrat-Black.ttf') format('truetype');
+    font-weight:900;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Poppins';
+    src:url('fonts/Poppins-Medium.ttf') format('truetype');
+    font-weight:500;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Poppins';
+    src:url('fonts/Poppins-SemiBold.ttf') format('truetype');
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Poppins';
+    src:url('fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Work Sans';
+    src:url('fonts/WorkSans-Regular.ttf') format('truetype');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Work Sans';
+    src:url('fonts/WorkSans-Medium.ttf') format('truetype');
+    font-weight:500;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Work Sans';
+    src:url('fonts/WorkSans-SemiBold.ttf') format('truetype');
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+
+:root{
+  --bg: #FFFFFF;
+  --bg-alt: #FFFFFF;
+  --card: #F8F4EE;
+  --ink: #2C543B;
+  --ink-soft: #46513E;
+  --blue: #2C543B;
+  --blue-deep: #203C2A;
+  --accent: #C3947A;
+  --line: #E5E5E5;
+  --paper-shadow: rgba(0,0,0,0.07);
+}
+ 
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* subtle plaster texture */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    z-index:0;
+    opacity:0.5;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(0,0,0,0.02) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(0,0,0,0.015) 0, transparent 45%);
+  }
+
+  h1,h2,h3{
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    color:var(--ink);
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:1140px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- TAPE LABEL (signature element) ---------- */
+  .tape{
+    display:inline-block;
+    position:relative;
+    background:var(--card);
+    color:var(--blue-deep);
+    font-family:'Work Sans', sans-serif;
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    padding:6px 16px;
+    transform:rotate(-1.2deg);
+    box-shadow:0 2px 6px var(--paper-shadow);
+    clip-path:polygon(1% 10%, 3% 0%, 97% 4%, 100% 15%, 98% 92%, 96% 100%, 2% 96%, 0% 85%);
+  }
+  .tape.alt{transform:rotate(1deg);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,251,248,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:8px 28px;
+    max-width:1140px; margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+  }
+  .logo-img{
+    height:48px;
+    width:auto;
+    display:block;
+  }
+  nav.links{display:flex; gap:28px;}
+  nav.links a{
+    font-family:'Poppins', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    transition:color .15s ease;
+  }
+  nav.links a:hover, nav.links a:focus-visible{color:var(--blue);}
+  .nav-call{
+    font-family:'Poppins', sans-serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    background:var(--blue);
+    color:var(--bg);
+    padding:10px 18px;
+    border-radius:2px;
+  }
+  .nav-call:hover, .nav-call:focus-visible{background:var(--blue-deep);}
+  .menu-toggle{display:none; background:none; border:0; cursor:pointer; padding:8px;}
+  .menu-toggle span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:0px 0 50px;
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative; z-index:1; text-align:center; display:flex; flex-direction:column; align-items:center;}
+  .hero-icon{
+    width:210px;
+    height:auto;
+    margin:0 auto 5px;
+  }
+  .brand-h1{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:36px;
+  }
+  .h1-name{
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    font-size:clamp(34px, 6.5vw, 64px);
+    line-height:1;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  .h1-line{
+    height:1px;
+    background:var(--ink);
+    margin:16px 0;
+  }
+  .h1-tagline{
+    font-family:'Montserrat', sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
+    font-size:clamp(13px, 2vw, 17px);
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .h1-badges{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:24px;
+  }
+  .hero-lede{
+    max-width:520px;
+    font-size:17px;
+    color:var(--ink-soft);
+    margin:0 auto 36px;
+  }
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
+  .btn{
+    font-family:'Poppins', sans-serif;
+    font-weight:700;
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:14px 28px;
+    border-radius:2px;
+    display:inline-block;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--blue); color:var(--bg);}
+  .btn-primary:hover, .btn-primary:focus-visible{background:var(--blue-deep); transform:translateY(-1px);}
+  .btn-ghost{border:1.5px solid var(--ink); color:var(--ink);}
+  .btn-ghost:hover, .btn-ghost:focus-visible{background:var(--ink); color:var(--bg);}
+  .btn-whatsapp{
+    background:#25D366; color:#0B3B22;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-whatsapp:hover, .btn-whatsapp:focus-visible{background:#1EBE5A;}
+  .btn-whatsapp svg{width:18px; height:18px; flex:none;}
+  .response-note{
+    margin-top:18px;
+    font-family:'Work Sans', sans-serif;
+    font-size:13px;
+    color:var(--ink-soft);
+    letter-spacing:0.03em;
+  }
+  .response-note::before{content:"● "; color:#2E9E4F;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:50px 0; position:relative; z-index:1;}
+  .section-head{margin-bottom:48px; max-width:640px;}
+  .section-head h2{font-size:clamp(34px,5vw,52px); margin:14px 0 8px;}
+  .section-head p{color:var(--ink-soft); font-size:16px;}
+
+  /* ---------- SERVICES (swatch cards) ---------- */
+  .services{background:var(--bg-alt);}
+  .swatch-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+  }
+  .swatch-grid.single{grid-template-columns:1fr;}
+  .swatch{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:32px 28px 28px;
+    position:relative;
+    box-shadow:0 4px 14px var(--paper-shadow);
+  }
+  .swatch h3{font-size:26px; margin-bottom:14px;}
+  .swatch ul{list-style:none;}
+  .swatch li{
+    padding:9px 0;
+    font-size:15.5px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .swatch li:first-of-type{border-top:none;}
+  .swatch li::before{
+    content:"—";
+    color:var(--blue);
+    font-weight:600;
+    flex:none;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+  .process-step{padding-top:18px; border-top:2px solid var(--ink);}
+  .process-num{
+    font-family:'Work Sans', sans-serif;
+    font-size:13px;
+    color:var(--blue);
+    letter-spacing:0.08em;
+    display:block;
+    margin-bottom:10px;
+  }
+  .process-step h3{
+    font-family:'Montserrat', sans-serif;
+    text-transform:uppercase;
+    font-size:19px;
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .process-step p{font-size:14.5px; color:var(--ink-soft);}
+
+  /* ---------- GALLERY ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+  .gallery-item{
+    aspect-ratio:4/3;
+    border-radius:3px;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      repeating-linear-gradient(135deg, var(--card), var(--card) 10px, var(--bg-alt) 10px, var(--bg-alt) 20px);
+    color:var(--ink-soft);
+    font-family:'Work Sans', sans-serif;
+    font-size:12px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    text-align:center;
+    padding:12px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--bg-alt);}
+  .about-inner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .about h2{font-size:clamp(30px,4.5vw,44px); margin-bottom:20px;}
+  .about p{color:var(--ink-soft); margin-bottom:16px; max-width:480px;}
+  .about-facts{display:flex; flex-direction:column; gap:22px; padding-top:8px;}
+  .fact{border-top:1px solid var(--line); padding-top:14px;}
+  .fact strong{
+    display:block;
+    font-family:'Montserrat', sans-serif;
+    font-size:34px;
+    color:var(--blue);
+  }
+  .fact span{font-size:14px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.05em;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{
+    border-top:1px solid var(--line);
+  }
+  .faq-item{
+    border-bottom:1px solid var(--line);
+  }
+  .faq-item summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:22px 4px;
+    font-family:'Poppins', sans-serif;
+    font-weight:700;
+    font-size:19px;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-icon{
+    flex:none;
+    width:22px; height:22px;
+    position:relative;
+  }
+  .faq-icon::before, .faq-icon::after{
+    content:"";
+    position:absolute;
+    background:var(--blue);
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .faq-icon::before{width:16px; height:2px;}
+  .faq-icon::after{width:2px; height:16px; transition:transform .2s ease;}
+  .faq-item[open] .faq-icon::after{transform:translate(-50%,-50%) rotate(90deg) scaleY(0);}
+  .faq-answer{
+    padding:0 4px 24px;
+    max-width:680px;
+    color:var(--ink-soft);
+    font-size:15.5px;
+  }
+  .faq-answer p + p{margin-top:10px;}
+  .faq-note{
+    margin-top:28px;
+    font-size:14px;
+    color:var(--ink-soft);
+    font-family:'Work Sans', sans-serif;
+    max-width:680px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-inner{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:start;
+  }
+  .contact-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:26px;
+    box-shadow:0 4px 14px var(--paper-shadow);
+  }
+  .contact-line{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 0; border-top:1px solid var(--line);
+  }
+  .contact-line:first-child{border-top:none;}
+  .contact-line.no-border{border-top:none; padding-top:0;}
+  .contact-subhead{padding-bottom:6px;}
+  .contact-subhead span{
+    font-family:'Poppins', sans-serif;
+    font-weight:700;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink);
+  }
+  .contact-line span.label{
+    font-family:'Work Sans', sans-serif;
+    font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .contact-line a, .contact-line strong{
+    font-family:'Poppins', sans-serif;
+    font-weight:500; font-size:15px;
+  }
+  .contact-line a:hover{color:var(--blue);}
+
+  form{display:flex; flex-direction:column; gap:14px;}
+  form label{
+    font-family:'Work Sans', sans-serif;
+    font-size:12px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--ink-soft); margin-bottom:6px; display:block;
+  }
+  form input, form textarea{
+    width:100%;
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:12px 14px;
+    font-family:'Work Sans', sans-serif;
+    font-size:15px;
+    color:var(--ink);
+  }
+  form input:focus, form textarea:focus{
+    outline:2px solid var(--blue);
+    outline-offset:1px;
+  }
+  form textarea{min-height:110px; resize:vertical;}
+  form button{
+    align-self:flex-start;
+    border:none; cursor:pointer;
+    font-family:'Poppins', sans-serif;
+    font-weight:700; font-size:16px;
+    text-transform:uppercase; letter-spacing:0.04em;
+    background:var(--blue); color:var(--bg);
+    padding:14px 30px; border-radius:2px;
+    margin-top:6px;
+    transition:background .15s ease;
+  }
+  form button:hover{background:var(--blue-deep);}
+  form button:disabled{opacity:0.6; cursor:default;}
+  .hp-field{
+    position:absolute;
+    left:-9999px;
+    width:1px; height:1px;
+    overflow:hidden;
+  }
+  .form-status{
+    font-size:14.5px;
+    margin-top:4px;
+    display:none;
+  }
+  .form-status.is-visible{display:block;}
+  .form-status.ok{color:var(--blue);}
+  .form-status.err{color:#B0342A;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:40px 0;border-top:1px solid var(--line);}
+  .footer-inner{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  }
+  footer .footer-logo{height:38px;}
+  footer p{font-size:13px; color:var(--ink-soft);}
+  footer .credit{font-size:12px;}
+  footer .credit a{
+    opacity:0.6;
+    letter-spacing:0.02em;
+    transition:opacity .15s ease;
+  }
+  footer .credit a:hover{opacity:1;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    nav.links{display:none;}
+    .menu-toggle{display:block;}
+    .logo-img{height:38px;}
+    .swatch-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:repeat(2,1fr);}
+    .about-inner{grid-template-columns:1fr;}
+    .contact-inner{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:480px){
+    .process-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .cta-row{flex-direction:column; align-items:stretch;}
+    .btn{text-align:center;}
+  }
+</style>
+<style>
+  .legal{max-width:760px; margin:0 auto; padding:40px 28px 20px;}
+  .legal h1{font-size:clamp(28px,4.5vw,42px); margin-bottom:10px;}
+  .legal .legal-intro{color:var(--ink-soft); font-size:16px; margin-bottom:36px;}
+  .legal h2{
+    font-size:20px;
+    margin:32px 0 12px;
+  }
+  .legal p{color:var(--ink-soft); font-size:15.5px; margin-bottom:12px;}
+  .legal ul{list-style:none; margin:0 0 12px;}
+  .legal li{
+    color:var(--ink-soft); font-size:15.5px;
+    padding:5px 0; display:flex; gap:10px; align-items:baseline;
+  }
+  .legal li::before{content:"—"; color:var(--blue); font-weight:600; flex:none;}
+  .legal a{text-decoration:underline;}
+  .legal a:hover{color:var(--blue);}
+  .legal .back-link{
+    display:inline-block;
+    margin-top:36px;
+    font-family:'Poppins', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--blue);
+  }
+  .legal .updated{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:28px;
+    opacity:0.75;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand"><img src="mh_logo_small.png?v=2" alt="Milan Hubený" class="logo-img"></a>
+    <nav class="links">
+      <a href="index.html#sluzby">Služby</a>
+      <a href="index.html#cenik">Ceník</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class="legal">
+  <h1>Zásady ochrany osobních údajů</h1>
+  <p class="legal-intro">Tento web si zakládá na ochraně vašeho soukromí a zpracovává pouze nezbytné osobní údaje v souladu s platnou legislativou.</p>
+
+  <h2>1. Správce osobních údajů</h2>
+  <ul>
+    <li>Milan Hubený</li>
+    <li>IČO: 15280535</li>
+    <li>Sídlo: Jana Želivského 2386/13, Praha 3, 130 00</li>
+    <li>E-mail: <a href="mailto:hubeny62@seznam.cz">hubeny62@seznam.cz</a></li>
+  </ul>
+
+  <h2>2. Jaké údaje zpracovávám a proč</h2>
+  <p>Zpracovávám pouze údaje, které mi sami dobrovolně poskytnete prostřednictvím kontaktního formuláře: jméno, telefonní číslo nebo e-mail a obsah zprávy. Slouží výhradně k tomu, abych vás mohl zpětně kontaktovat a domluvit se na zakázce.</p>
+  <p>Pokud mě kontaktujete přes WhatsApp nebo telefonicky, zpracovávám údaje, které mi v rámci komunikace sdělíte, včetně telefonního čísla.</p>
+  <p>Při odeslání formuláře může být automaticky zaznamenána vaše IP adresa poskytovatelem služby, přes kterou je formulář odesílán (Google LLC). Právním základem zpracování je souhlas subjektu údajů.</p>
+
+  <h2>3. Doba uchování údajů</h2>
+  <p>Osobní údaje uchovávám maximálně 12 měsíců od poslední vzájemné komunikace. Poté je odstraňuji, pokud mi zákon neukládá jinak (například u vystavených faktur).</p>
+
+  <h2>4. Předávání údajů třetím stranám</h2>
+  <p>Vaše osobní údaje nepředávám třetím stranám pro marketingové účely.</p>
+  <p>Pro odesílání zpráv z kontaktního formuláře využívám službu Google Apps Script (Google LLC, USA). Odesláním formuláře souhlasíte se <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Zásadami ochrany soukromí Google</a>.</p>
+  <p>Pokud mě kontaktujete přes WhatsApp, probíhá komunikace prostřednictvím služby provozované společností Meta Platforms, Inc. a řídí se <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener">zásadami ochrany soukromí WhatsApp</a>.</p>
+
+  <h2>5. Cookies</h2>
+  <p>Tento web nepoužívá analytické ani marketingové cookies a nesleduje vaše chování na stránce.</p>
+
+  <h2>6. Vaše práva</h2>
+  <p>Máte právo požadovat přístup ke svým údajům, jejich opravu nebo výmaz, případně omezení zpracování či vznesení námitky. Stačí mě kontaktovat na <a href="mailto:hubeny62@seznam.cz">hubeny62@seznam.cz</a>.</p>
+  <p>Máte také právo podat stížnost u <a href="https://www.uoou.cz/" target="_blank" rel="noopener">Úřadu pro ochranu osobních údajů</a>.</p>
+
+  <p class="updated">Poslední aktualizace: srpen 2026</p>
+
+  <a class="back-link" href="index.html">← Zpět na hlavní stránku</a>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>© <span id="year"></span> Milan Hubený | Malíř a zedník Praha | Drobné rekonstrukce bytů | Praha a okolí</p>
+    <p class="credit"><a href="https://www.neudopsym.cz/" target="_blank" rel="noopener">Made by Neudopsym</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
