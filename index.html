@@ -35,7 +35,7 @@
       "name": "Kolik stojí vymalovat byt?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cena se odvíjí od plochy, stavu stěn a zvolené barvy. Přesnou částku lze spolehlivě určit až po prohlídce na místě, protože stav stěn cenu výrazně ovlivňuje. Prohlídka a nabídka jsou zdarma."
+        "text": "Práce se účtuje od 400 Kč/hod, což je u malířů i zedníků běžná obvyklá sazba. Celková cena za vymalování bytu ale bývá vyšší než jen počet hodin krát 400 Kč – vstupuje do ní i materiál, příprava podkladu nebo přesun nábytku. Orientačně se vymalování běžného bytu v Praze pohybuje v řádu 8 000 až 25 000 Kč podle velikosti a stavu stěn. Přesnou částku určím vždy až po bezplatné prohlídce na místě."
       }
     },
     {
@@ -117,6 +117,30 @@
         "@type": "Answer",
         "text": "Materiál obvykle zajišťuji já v rámci nabídky, včetně výběru vhodné barvy podle typu místnosti. Pokud máte konkrétní barvu nebo značku, se kterou chcete pracovat, klidně ji dodáte sami."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Kolik stojí malíř v Praze?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Malíř v Praze účtuje obvykle od 400 Kč/hod, což je běžná sazba i u ostatních řemeslníků. Celková cena za práci ale bývá vyšší než jen hodinovka krát počet hodin, protože do ní vstupuje materiál, rozsah přípravy a stav stěn. Za vymalování běžného bytu tak obvykle zaplatíte řádově 8 000 až 25 000 Kč. Přesnou cenu určím vždy až po bezplatné prohlídce na místě."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hledáte malíře nebo zedníka pro byt v Praze?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pracuji v Praze a okolí, včetně Prahy 1 až Prahy 10 i přilehlých obcí ve Středočeském kraji. Zvládnu malování, drobné zednické opravy i jejich kombinaci v rámci jedné zakázky – stačí napsat nebo zavolat a domluvíme prohlídku."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Provádíte i drobné opravy před malováním?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Praskliny, poškozený povrch nebo nerovné stěny opravím ještě před samotným malováním, takže výsledný nátěr vydrží déle a vypadá lépe. Tuto kombinaci zvládnu v rámci jedné zakázky bez nutnosti shánět dalšího řemeslníka."
+      }
     }
   ]
 }
@@ -128,13 +152,19 @@
   "name": "Milan Hubený — malířské a zednické práce",
   "image": "https://malir-zednik-praha.cz/mh_logo_nobg.png?v=2",
   "url": "https://malir-zednik-praha.cz",
-  "telephone": "+420700000000",
-  "email": "hubeny@seznam.cz",
+  "telephone": "+420737646187",
+  "email": "hubeny62@seznam.cz",
   "priceRange": "Kč",
-  "areaServed": {
-    "@type": "City",
-    "name": "Praha"
-  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Praha"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Středočeský kraj"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Praha",
@@ -437,6 +467,7 @@
     grid-template-columns:repeat(2, 1fr);
     gap:24px;
   }
+  .swatch-grid.single{grid-template-columns:1fr;}
   .swatch{
     background:var(--card);
     border:1px solid var(--line);
@@ -602,6 +633,16 @@
     padding:16px 0; border-top:1px solid var(--line);
   }
   .contact-line:first-child{border-top:none;}
+  .contact-line.no-border{border-top:none; padding-top:0;}
+  .contact-subhead{padding-bottom:6px;}
+  .contact-subhead span{
+    font-family:'Poppins', sans-serif;
+    font-weight:700;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink);
+  }
   .contact-line span.label{
     font-family:'Work Sans', sans-serif;
     font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
@@ -646,36 +687,30 @@
     transition:background .15s ease;
   }
   form button:hover{background:var(--blue-deep);}
-
-  /* ---------- BILLING ---------- */
-  .billing{
-    padding:32px 0;
-    background:var(--bg-alt);
+  form button:disabled{opacity:0.6; cursor:default;}
+  .hp-field{
+    position:absolute;
+    left:-9999px;
+    width:1px; height:1px;
+    overflow:hidden;
   }
-  .billing-inner > .label{
-    display:block;
-    margin-bottom:14px;
-  }
-  .billing-inner .label{
-    font-family:'Work Sans', sans-serif;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
+  .form-consent{
+    font-size:12.5px;
     color:var(--ink-soft);
+    opacity:0.8;
+    line-height:1.5;
+    margin-top:2px;
   }
-  .billing-grid{
-    display:flex;
-    flex-wrap:wrap;
-    gap:32px;
+  .form-consent a{text-decoration:underline;}
+  .form-consent a:hover{color:var(--blue);}
+  .form-status{
+    font-size:14.5px;
+    margin-top:4px;
+    display:none;
   }
-  .billing-grid > div{display:flex; flex-direction:column; gap:4px;}
-  .billing-grid strong{
-    font-family:'Poppins', sans-serif;
-    font-weight:600;
-    font-size:16px;
-    color:var(--ink);
-    letter-spacing:0.02em;
-  }
+  .form-status.is-visible{display:block;}
+  .form-status.ok{color:var(--blue);}
+  .form-status.err{color:#B0342A;}
 
   /* ---------- FOOTER ---------- */
   footer{padding:40px 0;border-top:1px solid var(--line);}
@@ -684,6 +719,15 @@
   }
   footer .footer-logo{height:38px;}
   footer p{font-size:13px; color:var(--ink-soft);}
+  footer p a{text-decoration:underline;}
+  footer p a:hover{color:var(--blue);}
+  footer .credit{font-size:12px;}
+  footer .credit a{
+    opacity:0.6;
+    letter-spacing:0.02em;
+    transition:opacity .15s ease;
+  }
+  footer .credit a:hover{opacity:1;}
 
   /* ---------- REVEAL ---------- */
   .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
@@ -744,11 +788,11 @@
         <span class="tape alt">30 let zkušeností</span>
       </span>
     </h1>
-    <p class="hero-lede">Malování bytů, nátěry fasád i drobné zednické práce. Vše osobně, čistě, v domluveném termínu a za předem stanovenou cenu – pro domácnosti i firmy v Praze a okolí.</p>
+    <p class="hero-lede">Milan Hubený je malíř a zedník s více než 30 lety praxe, který působí v Praze a okolí. Nabízí malování bytů, nátěry fasád, opravy a štukování stěn i drobné zednické práce – osobně, bez subdodavatelů, čistě a za cenu dohodnutou předem po bezplatné prohlídce.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="tel:+420700000000">Zavolat</a>
+      <a class="btn btn-primary" href="tel:+420737646187">Zavolat</a>
       <a class="btn btn-ghost" href="#kontakt">Napsat zprávu</a>
-      <a class="btn btn-whatsapp" href="https://wa.me/420700000000" target="_blank" rel="noopener">
+      <a class="btn btn-whatsapp" href="https://wa.me/420737646187" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.08L2 22l5.08-1.33A9.96 9.96 0 0 0 12.02 22C17.52 22 22 17.52 22 12S17.52 2 12.02 2Zm5.86 14.2c-.25.7-1.45 1.34-2 1.42-.53.08-1.14.11-1.84-.12-.42-.14-.96-.32-1.66-.62-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.02 0-1.43.75-2.14 1.02-2.43.27-.29.58-.36.77-.36h.55c.18 0 .42-.03.65.5.25.6.85 2.08.92 2.24.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.32-.13.63.18.31.78 1.29 1.68 2.09 1.16 1.03 2.13 1.35 2.44 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.4-.25.68-.15.27.1 1.75.83 2.05.98.3.15.5.23.57.36.08.13.08.75-.17 1.45Z"/></svg>
         WhatsApp
       </a>
@@ -768,19 +812,19 @@
         <ul>
           <li>Malování bytů a kanceláří</li>
           <li>Nátěry fasád</li>
-          <li>Štukování a stěrkování stěn</li>
-          <li>Tapetování</li>
           <li>Lakování dveří a zárubní</li>
+          <li>Opravy podkladu před malováním</li>
+          <li>Nátěry radiátorů a topných těles</li>
         </ul>
       </div>
       <div class="swatch reveal">
         <h3>Zednické práce</h3>
         <ul>
           <li>Drobné zednické opravy</li>
-          <li>Sádrokartonové konstrukce</li>
-          <li>Vyrovnání stěn a stropů</li>
-          <li>Bourací práce</li>
+          <li>Zazdívky po instalatérských pracích</li>
           <li>Obklady a dlažby</li>
+          <li>Začišťovací práce po výměně oken a dveří, zapravení drážek a šlic po rozvodech vody, elektriny a odpadu</li>
+          <li>Oprava omítek, spár a výtluků ve zdi</li>
         </ul>
       </div>
     </div>
@@ -835,28 +879,18 @@
 <section id="cenik">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>Cena dle rozsahu práce</h2>
-      <p>Přesnou cenu ovlivňuje stav stěn, velikost prostoru a zvolené materiály — proto dávám konkrétní nabídku vždy až po bezplatné prohlídce, ne odhadem po telefonu.</p>
+      <h2>Orientační ceník</h2>
+      <p>Cenu každé zakázky stanovuji individuálně. Záleží nejen na rozsahu práce a velikosti plochy, ale také na stavu a přístupnosti prostoru, potřebě přípravných prací, použitých materiálech, náročnosti provedení a vašich konkrétních požadavcích. Za malířské i zednické práce účtuji od 400 Kč za hodinu. Nejdříve se ale přijedu zdarma podívat na místo, probereme vaše představy a následně vám připravím konkrétní cenovou nabídku.</p>
     </div>
-    <div class="swatch-grid">
+    <div class="swatch-grid single">
       <div class="swatch reveal">
-        <h3>Malování</h3>
+        <h3>Malířské i zednické práce</h3>
         <ul>
-          <li>Od 40 Kč/m² — jednoduchá bílá výmalba</li>
-          <li>Vyšší cena při barevných odstínech</li>
-          <li>Příplatek za škrábání a opravy podkladu</li>
-        </ul>
-      </div>
-      <div class="swatch reveal">
-        <h3>Zednické práce</h3>
-        <ul>
-          <li>Cena dle rozsahu a typu zásahu</li>
-          <li>Drobné opravy od hodinové sazby</li>
-          <li>Větší zakázky na základě prohlídky</li>
+          <li>Od 400 Kč/hod</li>
+          <li>Konečná cena se stanoví po nezávazné prohlídce a domluvě rozsahu práce.</li>
         </ul>
       </div>
     </div>
-    <p class="faq-note">Uvedené ceny jsou orientační. Nezávazná prohlídka a cenová nabídka jsou vždy zdarma.</p>
   </div>
 </section>  
 
@@ -895,8 +929,8 @@
       <details class="faq-item">
         <summary>Kolik stojí vymalovat byt?<span class="faq-icon"></span></summary>
         <div class="faq-answer">
-          <p>Cena se odvíjí hlavně od velikosti bytu, stavu stěn, rozsahu přípravných prací a zvolené barvy. U běžného bytu se v Praze cena za kompletní vymalování včetně přípravy podkladu obvykle pohybuje v jednotkách až nižších desítkách tisíc korun. Přesnou cenu ale určím až po prohlídce na místě, protože stav stěn může výslednou cenu výrazně ovlivnit.</p>
-          <p>Prohlídka a nezávazná cenová nabídka jsou zdarma.</p>
+          <p>Práce se účtuje od 400 Kč/hod, což je u malířů i zedníků běžná obvyklá sazba. Celková cena za vymalování bytu ale bývá vyšší než jen počet hodin krát 400 Kč – vstupuje do ní i materiál, příprava podkladu nebo přesun nábytku. Orientačně se vymalování běžného bytu v Praze pohybuje v řádu 8 000 až 25 000 Kč podle velikosti a stavu stěn.</p>
+          <p>Přesnou cenu ale určím až po prohlídce na místě, protože stav stěn může výslednou cenu výrazně ovlivnit. Prohlídka a nezávazná cenová nabídka jsou zdarma.</p>
         </div>
       </details>
 
@@ -958,8 +992,38 @@
         </div>
       </details>
 
+      <details class="faq-item">
+        <summary>Kolik stojí malíř v Praze?<span class="faq-icon"></span></summary>
+        <div class="faq-answer">
+          <p>Malíř v Praze účtuje obvykle od 400 Kč/hod, což je běžná sazba i u ostatních řemeslníků. Celková cena za práci ale bývá vyšší než jen hodinovka krát počet hodin, protože do ní vstupuje materiál, rozsah přípravy a stav stěn. Za vymalování běžného bytu tak obvykle zaplatíte řádově 8 000 až 25 000 Kč. Přesnou cenu určím vždy až po bezplatné prohlídce na místě.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Hledáte malíře nebo zedníka pro byt v Praze?<span class="faq-icon"></span></summary>
+        <div class="faq-answer">
+          <p>Pracuji v Praze a okolí, včetně Prahy 1 až Prahy 10 i přilehlých obcí ve Středočeském kraji. Zvládnu malování, drobné zednické opravy i jejich kombinaci v rámci jedné zakázky – stačí napsat nebo zavolat a domluvíme prohlídku.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Provádíte i drobné opravy před malováním?<span class="faq-icon"></span></summary>
+        <div class="faq-answer">
+          <p>Ano. Praskliny, poškozený povrch nebo nerovné stěny opravím ještě před samotným malováním, takže výsledný nátěr vydrží déle a vypadá lépe. Tuto kombinaci zvládnu v rámci jedné zakázky bez nutnosti shánět dalšího řemeslníka.</p>
+        </div>
+      </details>
+
     </div>
     <p class="faq-note">Nenašli jste odpověď na svou otázku? Napište mi přes kontaktní formulář níže.</p>
+  </div>
+</section>
+
+<section id="oblasti">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Kde pracuji</h2>
+      <p>Zakázky realizuji v Praze a okolí. Nejčastěji pracuji pro zákazníky z Prahy 1 až Prahy 10, ale dojíždím i do okolních obcí ve Středočeském kraji – vzdálenost vždy raději upřesníme předem při telefonátu nebo zprávě.</p>
+    </div>
   </div>
 </section>
 
@@ -970,51 +1034,51 @@
       <p>Popište mi stručně, co potřebujete opravit nebo upravit. Ozvu se vám zpět a domluvíme další postup.</p>
     </div>
     <div class="contact-inner">
-      <form class="reveal" onsubmit="event.preventDefault(); alert('Formulář je zatím ukázkový — napojíme na e-mail nebo poptávkový systém.');">
+      <form class="reveal" id="poptavkaForm">
         <div>
           <label for="jmeno">Jméno</label>
-          <input id="jmeno" type="text" required>
+          <input id="jmeno" name="jmeno" type="text" required>
         </div>
         <div>
           <label for="telefon">Telefon nebo e-mail</label>
-          <input id="telefon" type="text" required>
+          <input id="telefon" name="telefon" type="text" required>
         </div>
         <div>
           <label for="zprava">Co je potřeba udělat</label>
-          <textarea id="zprava" required></textarea>
+          <textarea id="zprava" name="zprava" required></textarea>
         </div>
-        <button type="submit">Odeslat poptávku</button>
+        <div class="hp-field" aria-hidden="true">
+          <label for="web">Nevyplňujte toto pole</label>
+          <input id="web" name="web" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" id="poptavkaBtn">Odeslat poptávku</button>
+        <p class="form-consent">Odesláním formuláře souhlasíte se zpracováním uvedených údajů za účelem vyřízení vaší poptávky. Více v <a href="zasady-ochrany-osobnich-udaju.html">zásadách ochrany osobních údajů</a>.</p>
+        <p class="form-status" id="formStatus" role="status"></p>
       </form>
       <div class="contact-card reveal">
         <div class="contact-line">
           <span class="label">Telefon</span>
-          <a href="tel:+420700000000">+420 700 000 000</a>
+          <a href="tel:+420737646187">+420 737 646 187</a>
         </div>
         <div class="contact-line">
           <span class="label">WhatsApp</span>
-          <a href="https://wa.me/420700000000" target="_blank" rel="noopener">Napsat zprávu</a>
+          <a href="https://wa.me/420737646187" target="_blank" rel="noopener">Napsat zprávu</a>
         </div>
         <div class="contact-line">
           <span class="label">E-mail</span>
-          <a href="mailto:hubeny@seznam.cz">hubeny@seznam.cz</a>
+          <a href="mailto:hubeny62@seznam.cz">hubeny62@seznam.cz</a>
         </div>
         <div class="contact-line">
           <span class="label">Dostupnost</span>
-          <strong>Po–Pá, 7–17 h</strong>
+          <strong>8–20 h</strong>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="fakturacni-udaje" class="billing">
-  <div class="wrap">
-    <div class="billing-inner reveal">
-      <span class="label">Fakturační údaje</span>
-      <div class="billing-grid">
-        <div><span class="label">IČO</span><strong>00000000</strong></div>
-        <div><span class="label">DIČ</span><strong>CZ00000000</strong></div>
-        <div><span class="label">Bankovní spojení</span><strong>000000000/0000</strong></div>
+        <div class="contact-line contact-subhead">
+          <span>Fakturační údaje</span>
+        </div>
+        <div class="contact-line no-border">
+          <span class="label">IČO</span>
+          <strong>15280535</strong>
+        </div>
       </div>
     </div>
   </div>
@@ -1022,7 +1086,8 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <p>© <span id="year"></span> Milan Hubený | Malíř a zedník Praha | Drobné rekonstrukce bytů | Praha a okolí</p>
+    <p>© <span id="year"></span> Milan Hubený | Malíř a zedník Praha | Drobné rekonstrukce bytů | Praha a okolí | <a href="zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a></p>
+    <p class="credit"><a href="https://www.neudopsym.cz/" target="_blank" rel="noopener">Made by Neudopsym</a></p>
   </div>
 </footer>
 
@@ -1073,6 +1138,42 @@
     links.style.gap = '16px';
     links.style.borderRadius = '4px';
   });
+
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHxvQ1uRk6rcEdFC_rXUMP0qkOJeTZZDr6WNxTBie809BLBKHeoUR6f65br3QRDaIN/exec';
+
+  const poptavkaForm = document.getElementById('poptavkaForm');
+  if (poptavkaForm) {
+    poptavkaForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const btn = document.getElementById('poptavkaBtn');
+      const status = document.getElementById('formStatus');
+
+      if (poptavkaForm.web.value !== '') return;
+
+      btn.disabled = true;
+      btn.textContent = 'Odesílám…';
+      status.className = 'form-status';
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: new URLSearchParams(new FormData(poptavkaForm))
+        });
+
+        poptavkaForm.reset();
+        status.textContent = 'Děkuji, zpráva byla odeslána. Ozvu se vám co nejdříve.';
+        status.className = 'form-status is-visible ok';
+      } catch (err) {
+        status.textContent = 'Zprávu se nepodařilo odeslat. Zkuste to prosím znovu, nebo mi zavolejte.';
+        status.className = 'form-status is-visible err';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Odeslat poptávku';
+      }
+    });
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
