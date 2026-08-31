@@ -550,6 +550,20 @@
   .about h2{font-size:clamp(30px,4.5vw,44px); margin-bottom:20px;}
   .about p{color:var(--ink-soft); margin-bottom:16px; max-width:480px;}
   .about-facts{display:flex; flex-direction:column; gap:22px; padding-top:8px;}
+  .about-photo{
+    aspect-ratio:4/3;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    background:var(--card);
+    margin-top:6px;
+  }
+  .about-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
   .fact{border-top:1px solid var(--line); padding-top:14px;}
   .fact strong{
     display:block;
@@ -872,6 +886,18 @@
       <div class="fact"><strong>30 let</strong><span>Zkušeností v oboru</span></div>
       <div class="fact"><strong>100 %</strong><span>Vlastní realizace, bez subdodavatelů</span></div>
       <div class="fact"><strong>Praha</strong><span>A blízké okolí</span></div>
+      <div class="about-photo">
+        <img src="foto/milan_hubeny_malir_zednik_praha_portret.jpg" alt="Milan Hubený – malíř a zedník, Praha" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="oblasti">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Kde pracuji</h2>
+      <p>Zakázky realizuji v Praze a okolí. Nejčastěji pracuji pro zákazníky z Prahy 1 až Prahy 10, ale dojíždím i do okolních obcí ve Středočeském kraji – vzdálenost vždy raději upřesníme předem při telefonátu nebo zprávě.</p>
     </div>
   </div>
 </section>
@@ -1033,15 +1059,6 @@
 
     </div>
     <p class="faq-note">Nenašli jste odpověď na svou otázku? Napište mi přes kontaktní formulář níže.</p>
-  </div>
-</section>
-
-<section id="oblasti">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>Kde pracuji</h2>
-      <p>Zakázky realizuji v Praze a okolí. Nejčastěji pracuji pro zákazníky z Prahy 1 až Prahy 10, ale dojíždím i do okolních obcí ve Středočeském kraji – vzdálenost vždy raději upřesníme předem při telefonátu nebo zprávě.</p>
-    </div>
   </div>
 </section>
 
