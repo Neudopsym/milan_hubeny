@@ -521,26 +521,23 @@
   /* ---------- GALLERY ---------- */
   .gallery-grid{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:0.75fr 0.75fr 0.75fr 1.333fr;
     gap:16px;
   }
   .gallery-item{
-    aspect-ratio:4/3;
     border-radius:3px;
     border:1px solid var(--line);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:
-      repeating-linear-gradient(135deg, var(--card), var(--card) 10px, var(--bg-alt) 10px, var(--bg-alt) 20px);
-    color:var(--ink-soft);
-    font-family:'Work Sans', sans-serif;
-    font-size:12px;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    text-align:center;
-    padding:12px;
+    overflow:hidden;
+    background:var(--card);
   }
+  .gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .gallery-item.portrait{aspect-ratio:3/4;}
+  .gallery-item.landscape{aspect-ratio:4/3;}
 
   /* ---------- ABOUT ---------- */
   .about{background:var(--bg-alt);}
@@ -747,10 +744,13 @@
     .about-inner{grid-template-columns:1fr;}
     .contact-inner{grid-template-columns:1fr;}
     .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-item.portrait, .gallery-item.landscape{aspect-ratio:1/1;}
   }
   @media (max-width:480px){
     .process-grid{grid-template-columns:1fr;}
     .gallery-grid{grid-template-columns:1fr;}
+    .gallery-item.portrait{aspect-ratio:3/4;}
+    .gallery-item.landscape{aspect-ratio:4/3;}
     .cta-row{flex-direction:column; align-items:stretch;}
     .btn{text-align:center;}
   }
@@ -898,15 +898,33 @@
   <div class="wrap">
     <div class="section-head reveal">
       <h2>Realizace</h2>
-      <p>Fotky z posledních zakázek — postupně doplním.</p>
+      <p>Ukázky z dokončených zakázek – obklady, dlažby a zednické úpravy v pražských bytech.</p>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item reveal">Foto brzy doplním</div>
-      <div class="gallery-item reveal">Foto brzy doplním</div>
-      <div class="gallery-item reveal">Foto brzy doplním</div>
-      <div class="gallery-item reveal">Foto brzy doplním</div>
-      <div class="gallery-item reveal">Foto brzy doplním</div>
-      <div class="gallery-item reveal">Foto brzy doplním</div>
+      <div class="gallery-item portrait reveal">
+        <img src="foto/milan_hubeny_malir_zednik_obklady_praha_1.jpg" alt="Obklady v koupelně – realizace Milan Hubený, Praha" loading="lazy">
+      </div>
+      <div class="gallery-item portrait reveal">
+        <img src="foto/milan_hubeny_malir_zednik_obklady_praha_2.jpg" alt="Zednické a obkladačské práce v bytě, Praha" loading="lazy">
+      </div>
+      <div class="gallery-item portrait reveal">
+        <img src="foto/milan_hubeny_malir_zednik_obklady_praha_3.jpg" alt="Detail obkladu stěny – práce malíře a zedníka v Praze" loading="lazy">
+      </div>
+      <div class="gallery-item landscape reveal">
+        <img src="foto/milan_hubeny_malir_zednik_obklady_praha_4.jpg" alt="Dokončená realizace obkladů v pražském bytě" loading="lazy">
+      </div>
+      <div class="gallery-item portrait reveal">
+        <img src="foto/milan_hubeny_malir_zednik_obklady_praha_5.jpg" alt="Obkládání koupelny – zednické práce Praha" loading="lazy">
+      </div>
+      <div class="gallery-item portrait reveal">
+        <img src="foto/milan_hubeny_malir_zednik_obklady_praha_6.jpg" alt="Práce na obkladech a dlažbě v bytě, Praha" loading="lazy">
+      </div>
+      <div class="gallery-item portrait reveal">
+        <img src="foto/milan_hubeny_malir_zednik_obklady_praha_7.jpg" alt="Realizace obkladů a zednických úprav, Praha" loading="lazy">
+      </div>
+      <div class="gallery-item landscape reveal">
+        <img src="foto/milan_hubeny_malir_zednik_obklady_praha_8.jpg" alt="Hotová koupelna po obkladačských pracích – Milan Hubený, Praha" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -1056,7 +1074,7 @@
           <input id="web" name="web" type="text" tabindex="-1" autocomplete="off">
         </div>
         <button type="submit" id="poptavkaBtn">Odeslat poptávku</button>
-        <p class="form-consent">Odesláním formuláře souhlasíte se zpracováním uvedených údajů za účelem vyřízení vaší poptávky. Více v <a href="zasady-ochrany-osobnich-udaju.html">zásadách ochrany osobních údajů</a>.</p>
+        <p class="form-consent">Odesláním formuláře potvrzujete, že jste se seznámili s informacemi o zpracování osobních údajů. Uvedené údaje použiji k identifikaci vaší poptávky, přípravě individuální nabídky a následné komunikaci telefonicky nebo e-mailem.<br><br>Správcem osobních údajů je Milan Hubený, IČO 15280535. Údaje uchovávám po dobu nezbytnou k vyřízení vaší poptávky. Máte právo požádat o přístup k údajům, jejich opravu nebo výmaz. Podrobné informace najdete v <a href="zasady-ochrany-osobnich-udaju.html">zásadách ochrany osobních údajů</a>.</p>
         <p class="form-status" id="formStatus" role="status"></p>
       </form>
       <div class="contact-card reveal">
