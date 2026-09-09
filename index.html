@@ -2,6 +2,20 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
+
+<!-- Cookiebot — musí být první skript v hlavičce, blokuje ostatní do udělení souhlasu -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="042d158e-f2bc-4771-a6ad-0ec7c688f60d" data-blockingmode="auto" type="text/javascript"></script>
+
+
+<!-- Google Analytics (GA4) — spustí se až po souhlasu se statistickými cookies -->
+<script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-Y7V9849C0C"></script>
+<script type="text/plain" data-cookieconsent="statistics">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y7V9849C0C');
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Malíř a zedník Praha | Milan Hubený – malování bytů a zednické opravy</title>
 <meta name="description" content="Malíř a zedník Praha. Hledáte spolehlivého řemeslníka? Milan Hubený nabízí malování bytů, opravy stěn, štukování a drobné zednické práce osobně a pečlivě. Nezávazná poptávka, rychlá domluva.">
@@ -1142,7 +1156,7 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <p>© <span id="year"></span> Milan Hubený | Malíř a zedník Praha | Drobné rekonstrukce bytů | Praha a okolí | <a href="zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a></p>
+    <p>© <span id="year"></span> Milan Hubený | Malíř a zedník Praha | Drobné rekonstrukce bytů | Praha a okolí | <a href="zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a> | <a href="#" onclick="Cookiebot.renew(); return false;">Nastavení cookies</a></p>
     <p class="credit"><a href="https://www.neudopsym.cz/" target="_blank" rel="noopener">Made by Neudopsym</a></p>
   </div>
 </footer>
