@@ -2,9 +2,23 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
+
+<!-- Cookiebot — musí být první skript v hlavičce, blokuje ostatní do udělení souhlasu -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="042d158e-f2bc-4771-a6ad-0ec7c688f60d" data-blockingmode="auto" type="text/javascript"></script>
+
+
+<!-- Google Analytics (GA4) — spustí se až po souhlasu se statistickými cookies -->
+<script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-Y7V9849C0C"></script>
+<script type="text/plain" data-cookieconsent="statistics">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y7V9849C0C');
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zásady ochrany osobních údajů | Milan Hubený – malíř a zedník Praha</title>
-<meta name="description" content="Zásady ochrany osobních údajů webu malir-zednik-praha.cz. Informace o zpracování osobních údajů odeslaných přes kontaktní formulář.">
+<title>Zásady zpracování osobních údajů | Milan Hubený – malíř a zedník Praha</title>
+<meta name="description" content="Zásady zpracování osobních údajů podnikatele Milan Hubený, IČO 15280535.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://malir-zednik-praha.cz/zasady-ochrany-osobnich-udaju.html">
 <link rel="icon" type="image/png" sizes="16x16" href="mh_favicon_16x16.png?v=2">
@@ -212,7 +226,7 @@
   }
   .hero .wrap{position:relative; z-index:1; text-align:center; display:flex; flex-direction:column; align-items:center;}
   .hero-icon{
-    width:210px;
+    width:185px;
     height:auto;
     margin:0 auto 5px;
   }
@@ -302,7 +316,7 @@
     grid-template-columns:repeat(2, 1fr);
     gap:24px;
   }
-  .swatch-grid.single{grid-template-columns:1fr;}
+  .swatch-grid.single{grid-template-columns:1fr; max-width:640px;}
   .swatch{
     background:var(--card);
     border:1px solid var(--line);
@@ -356,26 +370,23 @@
   /* ---------- GALLERY ---------- */
   .gallery-grid{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:0.75fr 0.75fr 0.75fr 1.333fr;
     gap:16px;
   }
   .gallery-item{
-    aspect-ratio:4/3;
     border-radius:3px;
     border:1px solid var(--line);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:
-      repeating-linear-gradient(135deg, var(--card), var(--card) 10px, var(--bg-alt) 10px, var(--bg-alt) 20px);
-    color:var(--ink-soft);
-    font-family:'Work Sans', sans-serif;
-    font-size:12px;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    text-align:center;
-    padding:12px;
+    overflow:hidden;
+    background:var(--card);
   }
+  .gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .gallery-item.portrait{aspect-ratio:3/4;}
+  .gallery-item.landscape{aspect-ratio:4/3;}
 
   /* ---------- ABOUT ---------- */
   .about{background:var(--bg-alt);}
@@ -386,8 +397,26 @@
     align-items:start;
   }
   .about h2{font-size:clamp(30px,4.5vw,44px); margin-bottom:20px;}
+  .about-sub{
+    font-size:20px;
+    margin:28px 0 12px;
+  }
   .about p{color:var(--ink-soft); margin-bottom:16px; max-width:480px;}
   .about-facts{display:flex; flex-direction:column; gap:22px; padding-top:8px;}
+  .about-photo{
+    aspect-ratio:4/3;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    background:var(--card);
+    margin-top:6px;
+  }
+  .about-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
   .fact{border-top:1px solid var(--line); padding-top:14px;}
   .fact strong{
     display:block;
@@ -529,6 +558,15 @@
     width:1px; height:1px;
     overflow:hidden;
   }
+  .form-consent{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    opacity:0.8;
+    line-height:1.5;
+    margin-top:2px;
+  }
+  .form-consent a{text-decoration:underline;}
+  .form-consent a:hover{color:var(--blue);}
   .form-status{
     font-size:14.5px;
     margin-top:4px;
@@ -545,6 +583,8 @@
   }
   footer .footer-logo{height:38px;}
   footer p{font-size:13px; color:var(--ink-soft);}
+  footer p a{text-decoration:underline;}
+  footer p a:hover{color:var(--blue);}
   footer .credit{font-size:12px;}
   footer .credit a{
     opacity:0.6;
@@ -571,24 +611,30 @@
     .about-inner{grid-template-columns:1fr;}
     .contact-inner{grid-template-columns:1fr;}
     .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-item.portrait, .gallery-item.landscape{aspect-ratio:1/1;}
   }
   @media (max-width:480px){
     .process-grid{grid-template-columns:1fr;}
     .gallery-grid{grid-template-columns:1fr;}
+    .gallery-item.portrait{aspect-ratio:3/4;}
+    .gallery-item.landscape{aspect-ratio:4/3;}
     .cta-row{flex-direction:column; align-items:stretch;}
     .btn{text-align:center;}
   }
 </style>
 <style>
-  .legal{max-width:760px; margin:0 auto; padding:40px 28px 20px;}
-  .legal h1{font-size:clamp(28px,4.5vw,42px); margin-bottom:10px;}
-  .legal .legal-intro{color:var(--ink-soft); font-size:16px; margin-bottom:36px;}
-  .legal h2{
-    font-size:20px;
-    margin:32px 0 12px;
+  .legal{max-width:820px; margin:0 auto; padding:40px 28px 20px;}
+  .legal h1{font-size:clamp(26px,4vw,38px); margin-bottom:8px;}
+  .legal .effective{
+    font-family:'Work Sans', sans-serif;
+    font-size:13px; color:var(--ink-soft);
+    text-transform:uppercase; letter-spacing:0.08em;
+    margin-bottom:28px;
   }
+  .legal h2{font-size:20px; margin:34px 0 12px;}
+  .legal h3{font-size:16px; margin:24px 0 10px;}
   .legal p{color:var(--ink-soft); font-size:15.5px; margin-bottom:12px;}
-  .legal ul{list-style:none; margin:0 0 12px;}
+  .legal ul{list-style:none; margin:0 0 14px;}
   .legal li{
     color:var(--ink-soft); font-size:15.5px;
     padding:5px 0; display:flex; gap:10px; align-items:baseline;
@@ -596,21 +642,24 @@
   .legal li::before{content:"—"; color:var(--blue); font-weight:600; flex:none;}
   .legal a{text-decoration:underline;}
   .legal a:hover{color:var(--blue);}
-  .legal .back-link{
-    display:inline-block;
-    margin-top:36px;
-    font-family:'Poppins', sans-serif;
-    font-weight:600;
-    font-size:15px;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    color:var(--blue);
+  .legal .toc{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:22px 26px;
+    margin-bottom:8px;
   }
-  .legal .updated{
-    font-size:13px;
-    color:var(--ink-soft);
-    margin-top:28px;
-    opacity:0.75;
+  .legal .toc strong{
+    display:block;
+    font-family:'Montserrat', sans-serif;
+    font-size:13px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--ink); margin-bottom:10px;
+  }
+  .legal .toc li{padding:4px 0; font-size:15px;}
+  .legal .back-link{
+    display:inline-block; margin-top:36px;
+    font-family:'Poppins', sans-serif; font-weight:600; font-size:15px;
+    text-transform:uppercase; letter-spacing:0.04em; color:var(--blue);
   }
 </style>
 </head>
@@ -629,38 +678,148 @@
 </header>
 
 <main class="legal">
-  <h1>Zásady ochrany osobních údajů</h1>
-  <p class="legal-intro">Tento web si zakládá na ochraně vašeho soukromí a zpracovává pouze nezbytné osobní údaje v souladu s platnou legislativou.</p>
+  <h1>Zásady zpracování osobních údajů</h1>
+  <p class="effective">Datum účinnosti: 01. 09. 2026</p>
 
-  <h2>1. Správce osobních údajů</h2>
+  <p>Podnikateli Milan Hubený, IČO: 15280535, se sídlem Jana Želivského 2386/13, 130 00, Praha 3 - Žižkov (dále jen „správce“, „zprostředkovatel“ nebo „my“) záleží na ochraně vašich osobních údajů, proto si prosím přečtěte, jak zprostředkovatel zpracovává vaše osobní údaje a jak s nimi nakládá.</p>
+
+  <p>Zprostředkovatel zpracovává osobní údaje v souladu s relevantními právními předpisy, jako je Nařízení Evropského parlamentu a Rady (EU) 2016/679 ze dne 27. dubna 2016 o ochraně fyzických osob v souvislosti se zpracováním osobních údajů a o volném pohybu těchto údajů a o zrušení směrnice 95/46/ES (obecné nařízení o ochraně osobních údajů) a zákon č. 110/2019 Sb., o zpracování osobních údajů, ve znění pozdějších předpisů.</p>
+
+  <div class="toc">
+    <strong>Obsah</strong>
+    <ul>
+      <li><a href="#koho">Koho se tyto zásady ochrany osobních údajů týkají?</a></li>
+      <li><a href="#jake">Jaké vaše osobní údaje zpracováváme a proč je zpracováváme?</a></li>
+      <li><a href="#musite">Musíte nám osobní údaje poskytnout?</a></li>
+      <li><a href="#souhlas">Musíte nám dávat vždy souhlas ke zpracování svých osobních údajů?</a></li>
+      <li><a href="#doba">Jak dlouho budeme vaše osobní údaje uchovávat?</a></li>
+      <li><a href="#predavani">Předáváme vaše osobní údaje nějakým dalším osobám?</a></li>
+      <li><a href="#prava">Jaká práva vám náleží v souvislosti se zpracováním osobních údajů?</a></li>
+      <li><a href="#vice">Kde se dozvíte o zpracování osobních údajů a vašich právech více informací?</a></li>
+    </ul>
+  </div>
+
+  <h2 id="koho">Koho se tyto zásady zpracování ochrany osobních údajů týkají?</h2>
+  <p>Tyto zásady zpracování osobních údajů zprostředkovatelem (dále jen „zásady“) se vztahují na zpracování osobních údajů zájemců o služby, kupujících a obchodních partnerů. Dále se na vás tyto zásady vztahují, pokud jste nám zaslal zprávu prostřednictvím kontaktního formuláře nebo poptávku prostřednictvím poptávkového formuláře na našich internetových stránkách nebo jste navštívil naše internetové stránky (dále jen „internetové stránky“).</p>
+
+  <h2 id="jake">Jaké vaše osobní údaje zpracováváme a proč je zpracováváme?</h2>
+  <p>Uvědomujeme si, že jedním z pravidel příslušných právních předpisů ohledně ochrany osobních údajů je právě přiměřenost, proto zpracováváme vaše osobní údaje pouze v rozsahu, který je nezbytný pro předmětný účel.</p>
+
+  <h3>Rozsah zpracovávaných osobních údajů</h3>
+  <p>Pokud jste zájemcem o služby, zpracováváme vaše následující osobní údaje:</p>
   <ul>
-    <li>Milan Hubený</li>
-    <li>IČO: 15280535</li>
-    <li>Sídlo: Jana Želivského 2386/13, Praha 3, 130 00</li>
-    <li>E-mail: <a href="mailto:hubeny62@seznam.cz">hubeny62@seznam.cz</a></li>
+    <li>identifikační osobní údaje, jako jsou akademický titul, jméno, příjmení, datum narození, IČO, DIČ,</li>
+    <li>adresní údaje, jako jsou adresa trvalého bydliště nebo trvalého pobytu, korespondenční adresa, sídlo,</li>
+    <li>kontaktní údaje jako jsou e-mailová adresa a telefonní číslo,</li>
+    <li>komunikace, kterou spolu vedeme.</li>
   </ul>
 
-  <h2>2. Jaké údaje zpracovávám a proč</h2>
-  <p>Zpracovávám pouze údaje, které mi sami dobrovolně poskytnete prostřednictvím kontaktního formuláře: jméno, telefonní číslo nebo e-mail a obsah zprávy. Slouží výhradně k tomu, abych vás mohl zpětně kontaktovat a domluvit se na zakázce.</p>
-  <p>Pokud mě kontaktujete přes WhatsApp nebo telefonicky, zpracovávám údaje, které mi v rámci komunikace sdělíte, včetně telefonního čísla.</p>
-  <p>Při odeslání formuláře může být automaticky zaznamenána vaše IP adresa poskytovatelem služby, přes kterou je formulář odesílán (Google LLC). Právním základem zpracování je souhlas subjektu údajů.</p>
+  <p>Pokud jste naším zákazníkem, zpracováváme vaše následující osobní údaje:</p>
+  <ul>
+    <li>identifikační osobní údaje, jako jsou akademický titul, jméno, příjmení, datum narození, IČO, DIČ,</li>
+    <li>adresní údaje, jako jsou adresa trvalého bydliště nebo trvalého pobytu, korespondenční adresa, sídlo,</li>
+    <li>kontaktní údaje jako jsou e-mailová adresa a telefonní číslo,</li>
+    <li>označení vystavených faktur a číslo z interní zákaznické databáze,</li>
+    <li>komunikace, kterou spolu vedeme,</li>
+    <li>nad rámec uvedeného dále zpracováváme čísla vašich bankovních účtů, včetně označení banky, u které je bankovní účet veden.</li>
+  </ul>
 
-  <h2>3. Doba uchování údajů</h2>
-  <p>Osobní údaje uchovávám maximálně 12 měsíců od poslední vzájemné komunikace. Poté je odstraňuji, pokud mi zákon neukládá jinak (například u vystavených faktur).</p>
+  <p>Pokud jste naším obchodním partnerem, zpracováváme vaše následující osobní údaje:</p>
+  <ul>
+    <li>identifikační osobní údaje, jako jsou jméno, příjmení, IČO, DIČ,</li>
+    <li>adresní údaje, jako jsou korespondenční adresa, sídlo,</li>
+    <li>kontaktní údaje jako jsou e-mailová adresa a telefonní číslo,</li>
+    <li>číslo bankovního účtu, označení vystavených a přijatých faktur,</li>
+    <li>komunikaci, kterou spolu vedeme.</li>
+  </ul>
 
-  <h2>4. Předávání údajů třetím stranám</h2>
-  <p>Vaše osobní údaje nepředávám třetím stranám pro marketingové účely.</p>
-  <p>Pro odesílání zpráv z kontaktního formuláře využívám službu Google Apps Script (Google LLC, USA). Odesláním formuláře souhlasíte se <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Zásadami ochrany soukromí Google</a>.</p>
-  <p>Pokud mě kontaktujete přes WhatsApp, probíhá komunikace prostřednictvím služby provozované společností Meta Platforms, Inc. a řídí se <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener">zásadami ochrany soukromí WhatsApp</a>.</p>
+  <p>Pokud jste nás kontaktoval prostřednictvím kontaktního formuláře na internetových stránkách, zpracováváme vaše osobní údaje v rozsahu jméno, příjmení, e-mail a pokud jste nám do zprávy napsal i telefonický kontakt, tak zpracováváme vaše telefonní číslo.</p>
 
-  <h2>5. Cookies</h2>
-  <p>Tento web nepoužívá analytické ani marketingové cookies a nesleduje vaše chování na stránce.</p>
+  <p>Při návštěvě našich internetových stránek také ukládáme různá cookies, a to nutná cookies pro provoz stránek, dále statistická cookies, která nám pomáhají mapovat vaše chování na stránkách a dále pak stránky zlepšovat a zlepšovat váš zážitek z nich a také marketingové cookies, abychom Vám následně mohli zobrazovat relevantní reklamu. Více informací o cookies, včetně toho, jak lze nastavení kdykoliv změnit, naleznete v <a href="#" onclick="Cookiebot.renew(); return false;">nastavení cookies</a>, které lze kdykoliv otevřít odkazem v patičce webu.</p>
 
-  <h2>6. Vaše práva</h2>
-  <p>Máte právo požadovat přístup ke svým údajům, jejich opravu nebo výmaz, případně omezení zpracování či vznesení námitky. Stačí mě kontaktovat na <a href="mailto:hubeny62@seznam.cz">hubeny62@seznam.cz</a>.</p>
-  <p>Máte také právo podat stížnost u <a href="https://www.uoou.cz/" target="_blank" rel="noopener">Úřadu pro ochranu osobních údajů</a>.</p>
+  <h3>Přehled používaných cookies</h3>
+  <p>Níže naleznete aktuální seznam cookies, které tento web používá. Seznam se automaticky aktualizuje.</p>
+  <script id="CookieDeclaration" src="https://consent.cookiebot.com/042d158e-f2bc-4771-a6ad-0ec7c688f60d/cd.js" type="text/javascript" async></script>
 
-  <p class="updated">Poslední aktualizace: srpen 2026</p>
+  <h3>Účely a právní základy zpracování</h3>
+  <p>Vaše osobní údaje zpracováváme z několika důvodů, které Vám níže popíšeme. Každý z uvedených důvodů však musí být podložen ještě právním základem zpracování, aby bylo zpracování osobních údajů zprostředkovatelem zákonné a v souladu s příslušnými právními předpisy.</p>
+  <p>Níže jsme pro Vás připravili přehled tzv. právních základů a účelů zpracování osobních údajů, tedy důvodů, proč osobní údaje zpracováváme.</p>
+
+  <p>Pokud jste zájemcem o služby správce, vaše osobní údaje zpracováváme pro účely:</p>
+  <ul>
+    <li>předsmluvní komunikace s vámi, jakožto zájemcem, a to na základě právního titulu plnění smlouvy nebo přijetí opatření před uzavřením takové smlouvy,</li>
+    <li>oslovování potenciálních zájemců, a to na základě právního titulu oprávněných zájmů správce.</li>
+  </ul>
+
+  <p>Jakmile se dohodneme na dodání výrobků, pak se stáváte naším zákazníkem a vaše osobní údaje jsou dále zpracovávány na základě níže uvedených účelů zpracování a právních titulů.</p>
+
+  <p>Pokud jste náš zákazník, vaše osobní údaje zpracováváme pro účely:</p>
+  <ul>
+    <li>příprava, plnění, evidence a uzavření smlouvy na poskytnutí služeb, a to na základě právního titulu plnění smlouvy nebo přijetí opatření před uzavřením takové smlouvy,</li>
+    <li>daňové a účetní účely, zejména vystavení faktur, zprocesování plateb, vedení účetnictví, a to na základě právního titulu plnění právních povinností, které se na správce osobních údajů vztahují,</li>
+    <li>plnění veřejnoprávních povinností, které se na správce vztahují, a to na základě právního titulu plnění právních povinností, které se na správce osobních údajů vztahují,</li>
+    <li>vedení interní evidence zákazníků, a to na základě právního titulu oprávněných zájmů správce,</li>
+    <li>vedení veškeré komunikace související se smlouvami, které jsme spolu uzavřeli nebo jejichž uzavření jsme zprostředkovali, s plněním povinností z těchto smluv, a to na základě právního titulu plnění smlouvy nebo přijetí opatření před uzavřením takové smlouvy,</li>
+    <li>vymáhání pohledávek, pokud jste nám neuhradil to, co jste podle smluv, které jste s námi uzavřel, uhradit měl, případně ochrana našich práv a vymáhání našich práv v případných soudních sporech, a to na základě právního titulu našeho oprávněného zájmu.</li>
+  </ul>
+
+  <p>Pokud jste naším obchodním partnerem, vaše osobní údaje zpracováváme pro účely:</p>
+  <ul>
+    <li>příprava, plnění, evidence a uzavření smlouvy, a to na základě právního titulu plnění smlouvy nebo přijetí opatření před uzavřením takové smlouvy,</li>
+    <li>daňové a účetní účely, zejména vystavení faktur, zprocesování plateb, vedení účetnictví, a to na základě právního titulu plnění právních povinností, které se na správce osobních údajů vztahují,</li>
+    <li>vedení interní evidence obchodních partnerů, a to na základě právního titulu oprávněných zájmů správce,</li>
+    <li>plnění veřejnoprávních povinností, které se na správce vztahují, a to na základě právního titulu plnění právních povinností, které se na správce jako správce osobních údajů vztahují,</li>
+    <li>vedení veškeré komunikace související se smlouvami, které jsme spolu uzavřeli nebo jejichž uzavření jsme zprostředkovali, s plněním povinností z těchto smluv, a to na základě právního titulu plnění smlouvy nebo přijetí opatření před uzavřením takové smlouvy,</li>
+    <li>vymáhání pohledávek, pokud jste nám neuhradil to, co jste podle smluv, které jste s námi uzavřel, uhradit měl, případně ochrana našich práv a vymáhání našich práv v případných soudních sporech, a to na základě právního titulu našeho oprávněného zájmu.</li>
+  </ul>
+
+  <p>V případě, že jste nám zaslal poptávku prostřednictvím poptávkového formuláře, zpracováváme vaše osobní údaje pro účely zpracování a zaslání nabídky související s vaší poptávkou, a to na základě právního titulu plnění smlouvy a provedení opatření přijatých před uzavřením smlouvy na vaši žádost. Jedná se o právnický pojem, takový právní základ neznamená, že spolu uzavíráme nějakou smlouvu, když nás kontaktujete prostřednictvím kontaktního formuláře, je nám jasné, že vás naše výrobky zaujaly nebo chcete probrat, co vám můžeme nabídnout.</p>
+
+  <p>Vaše osobní údaje nepoužíváme k rozhodování na základě automatizovaného zpracování, ani profilování.</p>
+
+  <h2 id="musite">Musíte nám osobní údaje poskytnout?</h2>
+  <p>Pokud vám máme poskytnout službu, kterou po nás požadujete, včetně zajištění veškerého souvisejícího servisu, budeme vaše osobní údaje potřebovat, bez nich to bohužel nepůjde. Poskytnutí osobních údajů je tak smluvním požadavkem a bez jejich poskytnutí s vámi nemůžeme uzavřít příslušné smlouvy a započít spolupráci.</p>
+  <p>V případě, že s námi jako náš budoucí obchodní partner chcete uzavřít smlouvu, tak i v takovém případě potřebujeme vaše osobní údaje, abychom s vámi mohli spolupracovat a plnit naše povinnosti vyplývající z uzavřené smlouvy. Poskytnutí osobních údajů je tak i v tomto případě smluvním požadavkem a bez jejich poskytnutí s vámi nemůžeme smlouvu uzavřít.</p>
+  <p>Rovněž při kontaktování prostřednictvím poptávkového formuláře nám osobní údaje musíte poskytnout, abychom vás mohli kontaktovat na základě zaslané poptávky či dotazu zpět, poskytnutí osobních údajů je tak smluvním požadavkem.</p>
+
+  <h2 id="souhlas">Musíte nám dávat vždy souhlas ke zpracování svých osobních údajů?</h2>
+  <p>V některých případech můžeme potřebovat ke zpracování vašich osobních údajů váš souhlas se zpracováním osobních údajů. Ne vždy je však zpracování na souhlasu založeno, a proto budeme váš souhlas vyžadovat pouze tam, kde to bude nezbytné pro to, abychom mohli vaše osobní údaje zpracovávat.</p>
+  <p>V současné době váš souhlas k žádnému zpracování nevyžadujeme, ale pokud by se tak stalo, vždy bychom vám řekli, jak můžete souhlas odvolat a poskytli vám další informace týkající se takového zpracování.</p>
+
+  <h2 id="doba">Jak dlouho budeme vaše osobní údaje uchovávat?</h2>
+  <p>V případě, že s námi podepisujete jakoukoliv smlouvu, je třeba uchovávat vaše osobní údaje nejen po dobu trvání této smlouvy, ale také po tom, co jste u nás nakoupil anebo jsme ukončili naši spolupráci na základě ukončení naší smlouvy. Je tomu tak např. z důvodu odstoupení od smlouvy, uplatňování náhrady škody, proto vaše osobní údaje uchováváme po dobu 10 let od uzavření jakékoliv smlouvy, případně po dobu 10 let ode dne ukončení smlouvy (někdy se může stát, že od smlouvy odstoupíme, pokud neplníte vaše povinnosti vyplývající ze smlouvy nebo se domluvíme na jiném ukončení naší spolupráce a tím i smlouvy). Nemůžeme tedy vaše osobní údaje smazat hned po uzavření smlouvy, provedení nákupu anebo ukončení našeho smluvního vztahu.</p>
+  <p>Podle příslušných právních předpisů jsme také povinni uchovávat např. daňové doklady po dobu 5 let od konce zdaňovacího období, ve kterém se plnění uskutečnilo, a to včetně vašich osobních údajů na nich uvedených.</p>
+  <p>Osobní údaje z poptávkového a kontaktního formuláře uchováváme po dobu 1 roku od zaslání poptávky nebo vaší zprávy prostřednictvím formuláře, pokud jsme spolu nenavázali spolupráci a nestal jste se kupujícím nebo obchodním partnerem.</p>
+  <p>Osobní údaje uchováváme vždy po dobu nezbytnou a přiměřenou k danému účelu, tj. důvodu, proč vaše osobní údaje zpracováváme. Doba uchování je určena zejména pomocí následující logiky:</p>
+  <ul>
+    <li>po dobu trvání smluvního závazku s vámi,</li>
+    <li>po dobu nezbytnou k ochraně práv správce,</li>
+    <li>po dobu trvání oprávněných zájmů správce, pokud je taková doba přiměřená danému účelu zpracování,</li>
+    <li>po dobu určenou právními předpisy,</li>
+    <li>po dobu nezbytnou k určení, výkonu nebo obhajobě právních nároků.</li>
+  </ul>
+
+  <h2 id="predavani">Předáváme vaše osobní údaje nějakým dalším osobám?</h2>
+  <p>K osobním údajům má u nás přístup pouze správce a zpracovatelé. K zajištění našeho chodu dále předáváme vaše osobní údaje společnosti zajišťující nám sdílené služby, jako externí účetní, marketing, administrativní podpora a IT podpora v rozsahu nezbytném pro její činnost, k některým osobním údajům má dále přístup náš právní poradce. Také můžeme předávat vaše osobní údaje příslušným orgánům státní správy, veřejné moci či bankovním institucím. Dále můžeme předávat osobní údaje našim právním zástupcům a dalším osobám za účelem ochrany našich práv. Všichni tito příjemci vašich osobních údajů jsou povinni chránit vaše osobní údaje stejným způsobem jako my, tedy v souladu s platnými právními předpisy. Pokud tito příjemci zpracovávají osobní údaje jako zpracovatelé, máme s nimi uzavřené příslušné smlouvy.</p>
+  <p>Osobní údaje nejsou předávány do třetích zemí mimo EU.</p>
+
+  <h2 id="prava">Jaká práva vám náleží v souvislosti se zpracováním osobních údajů?</h2>
+  <p>Níže naleznete výčet práv, jež vám náleží v souvislosti se zpracováním osobních údajů.</p>
+  <ul>
+    <li><strong>Právo na přístup:</strong> Máte možnost nás požádat, abychom vám sdělili, jaké vaše osobní údaje zpracováváme a k těmto údajům vám může být umožněn i přístup, tedy poskytnuta kopie zpracovávaných osobních údajů.</li>
+    <li><strong>Právo na opravu:</strong> Můžete po nás požadovat také opravu nepřesných nebo doplnění neúplných osobních údajů.</li>
+    <li><strong>Právo na výmaz:</strong> Rovněž nás můžete požádat o výmaz vašich osobních údajů, za určitých podmínek jsme povinni pak tyto osobní údaje vymazat, ne však vždy, v některých případech si můžeme osobní údaje dále ponechat.</li>
+    <li><strong>Právo na omezení zpracování:</strong> Také máte za určitých podmínek právo požadovat omezení zpracování, např. pokud popíráte přesnost osobních údajů a my jejich přesnost ověřujeme.</li>
+    <li><strong>Právo na přenositelnost:</strong> Dále vám náleží tzv. právo na přenositelnost, tedy za určitých podmínek máte právo na to, abychom vám poskytli údaje ve strukturovaném, běžně používaném a strojově čitelném formátu.</li>
+    <li><strong>Právo odvolat udělený souhlas:</strong> V neposlední řadě máte právo odvolat udělený souhlas se zpracováním osobních údajů, a to kdykoliv bez uvedení jakéhokoliv důvodu.</li>
+    <li><strong>Právo podat stížnost a na účinnou soudní ochranu:</strong> V případě, že máte podezření, že při zpracování vašich osobních údajů porušujeme zákon, či jiné platné právní předpisy, máte možnost podat stížnost u <a href="https://www.uoou.cz/" target="_blank" rel="noopener">Úřadu pro ochranu osobních údajů</a> a právo na účinnou soudní ochranu v této oblasti.</li>
+    <li>Další práva stanovená příslušnými právními předpisy.</li>
+  </ul>
+  <p>Kromě výše uvedených práv máte ještě právo vznést námitku proti zpracování týkající se vaší konkrétní situace, například pokud zpracováváme vaše osobní údaje pro naše oprávněné zájmy.</p>
+
+  <h2 id="vice">Kde se dozvíte o zpracování osobních údajů a vašich právech více informací?</h2>
+  <p>Aktuální informace o zpracování vašich osobních údajů se dozvíte vždy prostřednictvím těchto zásad. Na první stránce je uvedeno datum účinnosti, a pokud bychom informace v těchto zásadách aktualizovali, zaslali bychom vám aktualizované znění.</p>
+  <p>Pokud by pro vás výše uvedené nebylo dostačující a měli byste další otázky týkající se ochrany vašich osobních údajů, rádi vám je zodpovíme. Kontaktovat zprostředkovatele můžete na výše uvedené adrese sídla nebo prostřednictvím e-mailové adresy <a href="mailto:hubeny62@seznam.cz">hubeny62@seznam.cz</a>.</p>
 
   <a class="back-link" href="index.html">← Zpět na hlavní stránku</a>
 </main>
@@ -668,6 +827,7 @@
 <footer>
   <div class="wrap footer-inner">
     <p>© <span id="year"></span> Milan Hubený | Malíř a zedník Praha | Drobné rekonstrukce bytů | Praha a okolí</p>
+    <p><a href="#" onclick="Cookiebot.renew(); return false;">Nastavení cookies</a></p>
     <p class="credit"><a href="https://www.neudopsym.cz/" target="_blank" rel="noopener">Made by Neudopsym</a></p>
   </div>
 </footer>
