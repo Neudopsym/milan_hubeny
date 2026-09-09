@@ -709,15 +709,32 @@
     width:1px; height:1px;
     overflow:hidden;
   }
-  .form-consent{
-    font-size:12.5px;
-    color:var(--ink-soft);
-    opacity:0.8;
-    line-height:1.5;
-    margin-top:2px;
+  .consent-row{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-top:6px;
   }
-  .form-consent a{text-decoration:underline;}
-  .form-consent a:hover{color:var(--blue);}
+  .consent-row input[type="checkbox"]{
+    width:16px; height:16px;
+    flex:none;
+    margin-top:3px;
+    accent-color:var(--blue);
+    cursor:pointer;
+  }
+  .consent-row label{
+    font-family:'Work Sans', sans-serif;
+    font-size:13px;
+    text-transform:none;
+    letter-spacing:normal;
+    color:var(--ink-soft);
+    margin-bottom:0;
+    line-height:1.5;
+    cursor:pointer;
+  }
+  .consent-row a{text-decoration:underline;}
+  .consent-row a:hover{color:var(--blue);}
+  .consent-row .req{color:var(--blue);}
   .form-status{
     font-size:14.5px;
     margin-top:4px;
@@ -1087,8 +1104,11 @@
           <label for="web">Nevyplňujte toto pole</label>
           <input id="web" name="web" type="text" tabindex="-1" autocomplete="off">
         </div>
+        <div class="consent-row">
+          <input id="souhlas" name="souhlas" type="checkbox" required>
+          <label for="souhlas">Potvrzuji, že jsem se seznámil/-a se <a href="zasady-ochrany-osobnich-udaju.html">zásadami zpracování osobních údajů</a>. <span class="req">*</span></label>
+        </div>
         <button type="submit" id="poptavkaBtn">Odeslat poptávku</button>
-        <p class="form-consent">Odesláním formuláře potvrzujete, že jste se seznámili s informacemi o zpracování osobních údajů. Uvedené údaje použiji k identifikaci vaší poptávky, přípravě individuální nabídky a následné komunikaci telefonicky nebo e-mailem.<br><br>Správcem osobních údajů je Milan Hubený, IČO 15280535. Údaje uchovávám po dobu nezbytnou k vyřízení vaší poptávky. Máte právo požádat o přístup k údajům, jejich opravu nebo výmaz. Podrobné informace najdete v <a href="zasady-ochrany-osobnich-udaju.html">zásadách ochrany osobních údajů</a>.</p>
         <p class="form-status" id="formStatus" role="status"></p>
       </form>
       <div class="contact-card reveal">
