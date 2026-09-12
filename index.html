@@ -669,12 +669,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     box-shadow:0 4px 14px var(--paper-shadow);
   }
   .contact-line{
-    display:flex; justify-content:space-between; align-items:center;
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    align-items:start;
+    gap:12px;
     padding:16px 0; border-top:1px solid var(--line);
   }
   .contact-line:first-child{border-top:none;}
   .contact-line.no-border{border-top:none; padding-top:0;}
-  .contact-subhead{padding-bottom:6px;}
+  .contact-subhead{padding-bottom:6px; grid-template-columns:1fr;}
   .contact-subhead span{
     font-family:'Poppins', sans-serif;
     font-weight:700;
@@ -687,10 +690,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-family:'Work Sans', sans-serif;
     font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
     color:var(--ink-soft);
+    line-height:1.5;
   }
   .contact-line a, .contact-line strong{
     font-family:'Poppins', sans-serif;
     font-weight:500; font-size:15px;
+    text-align:right;
+    line-height:1.5;
   }
   .contact-line a:hover{color:var(--blue);}
 
@@ -784,6 +790,79 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     transition:opacity .15s ease;
   }
   footer .credit a:hover{opacity:1;}
+
+  /* ---------- PLOVOUCÍ TLAČÍTKO KONTAKTU ---------- */
+  .fab{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:120;
+    width:58px;
+    height:58px;
+    border:none;
+    border-radius:50%;
+    background:var(--blue);
+    color:var(--bg);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.22);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(12px) scale(0.9);
+    transition:opacity .25s ease, transform .25s ease, visibility .25s, background .15s ease;
+  }
+  .fab.is-visible{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+  }
+  .fab:hover, .fab:focus-visible{background:var(--blue-deep);}
+  .fab svg{width:26px; height:26px;}
+  .fab .fab-icon-close{display:none;}
+  .fab.is-open .fab-icon-chat{display:none;}
+  .fab.is-open .fab-icon-close{display:block;}
+
+  .contact-overlay{
+    position:fixed;
+    inset:0;
+    z-index:110;
+    background:rgba(0,0,0,0.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .2s ease, visibility .2s;
+  }
+  .contact-overlay.is-open{opacity:1; visibility:visible;}
+  .contact-overlay-inner{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    width:100%;
+    max-width:320px;
+  }
+  .contact-overlay .btn{
+    text-align:center;
+    justify-content:center;
+    font-size:17px;
+    padding:16px 28px;
+  }
+  .contact-overlay .btn-ghost{
+    border-color:var(--bg);
+    color:var(--bg);
+  }
+  .contact-overlay .btn-ghost:hover, .contact-overlay .btn-ghost:focus-visible{
+    background:var(--bg);
+    color:var(--ink);
+  }
+
+  @media (max-width:480px){
+    .fab{right:16px; bottom:16px; width:54px; height:54px;}
+  }
 
   /* ---------- REVEAL ---------- */
   .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
@@ -1320,7 +1399,76 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ---- Plovoucí tlačítko kontaktu ---- */
+  const fab = document.getElementById('contactFab');
+  const overlay = document.getElementById('contactOverlay');
+  const hero = document.querySelector('.hero');
+
+  function closeOverlay(){
+    overlay.classList.remove('is-open');
+    fab.classList.remove('is-open');
+    fab.setAttribute('aria-expanded', 'false');
+    fab.setAttribute('aria-label', 'Zobrazit kontakty');
+  }
+
+  function openOverlay(){
+    overlay.classList.add('is-open');
+    fab.classList.add('is-open');
+    fab.setAttribute('aria-expanded', 'true');
+    fab.setAttribute('aria-label', 'Zavřít kontakty');
+  }
+
+  if (fab && overlay && hero) {
+    // tlačítko se objeví, jakmile hero zmizí z obrazovky
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          fab.classList.remove('is-visible');
+          closeOverlay();
+        } else {
+          fab.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0 });
+    heroObserver.observe(hero);
+
+    fab.addEventListener('click', () => {
+      overlay.classList.contains('is-open') ? closeOverlay() : openOverlay();
+    });
+
+    // klik kamkoliv mimo tlačítka overlay zavře
+    overlay.addEventListener('click', (e) => {
+      if (!e.target.closest('.btn')) closeOverlay();
+    });
+
+    // „Napsat zprávu" překryv zavře a sjede k formuláři
+    overlay.querySelectorAll('[data-close-overlay]').forEach(el => {
+      el.addEventListener('click', closeOverlay);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeOverlay();
+    });
+  }
 </script>
+
+<!-- Plovoucí tlačítko kontaktu -->
+<button class="fab" id="contactFab" aria-label="Zobrazit kontakty" aria-expanded="false">
+  <svg class="fab-icon-chat" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-13 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg>
+  <svg class="fab-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+</button>
+
+<div class="contact-overlay" id="contactOverlay" role="dialog" aria-modal="true" aria-label="Kontaktní možnosti">
+  <div class="contact-overlay-inner">
+    <a class="btn btn-primary" href="tel:+420737646187">Zavolat</a>
+    <a class="btn btn-ghost" href="#kontakt" data-close-overlay>Napsat zprávu</a>
+    <a class="btn btn-whatsapp" href="https://wa.me/420737646187" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.08L2 22l5.08-1.33A9.96 9.96 0 0 0 12.02 22C17.52 22 22 17.52 22 12S17.52 2 12.02 2Zm5.86 14.2c-.25.7-1.45 1.34-2 1.42-.53.08-1.14.11-1.84-.12-.42-.14-.96-.32-1.66-.62-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.02 0-1.43.75-2.14 1.02-2.43.27-.29.58-.36.77-.36h.55c.18 0 .42-.03.65.5.25.6.85 2.08.92 2.24.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.32-.13.63.18.31.78 1.29 1.68 2.09 1.16 1.03 2.13 1.35 2.44 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.4-.25.68-.15.27.1 1.75.83 2.05.98.3.15.5.23.57.36.08.13.08.75-.17 1.45Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</div>
 
 </body>
 </html>
