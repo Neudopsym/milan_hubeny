@@ -732,18 +732,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     gap:8px;
   }
   a.contact-review{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
     text-decoration:none;
     transition:color .2s ease;
   }
-  a.contact-review svg{
-    width:15px; height:15px; flex:none;
-    fill:var(--accent);
-    transition:fill .2s ease;
-  }
-  a.contact-review:hover svg{fill:var(--blue);}
 
   form{display:flex; flex-direction:column; gap:14px;}
   form label{
@@ -1352,14 +1343,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="contact-line">
           <span class="label">Recenze</span>
           <div class="contact-reviews">
-            <a class="contact-review" href="https://g.page/r/CSTG6ypAIOtfEBM/review" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.7 1.2 6.6L12 17.6l-5.9 3.2 1.2-6.6L2.5 9.5l6.6-.9L12 2.5z"/></svg>
-              Hodnocení na Googlu
-            </a>
-            <a class="contact-review" href="https://mapy.com/sk/zakladni?source=firm&amp;id=14059793&amp;x=14.4698524&amp;y=50.0860190&amp;z=15" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.7 1.2 6.6L12 17.6l-5.9 3.2 1.2-6.6L2.5 9.5l6.6-.9L12 2.5z"/></svg>
-              Hodnocení na Seznamu
-            </a>
+            <a class="contact-review" href="https://g.page/r/CSTG6ypAIOtfEBM/review" target="_blank" rel="noopener">Hodnocení Google</a>
+            <a class="contact-review" href="https://mapy.com/sk/zakladni?source=firm&amp;id=14059793&amp;x=14.4698524&amp;y=50.0860190&amp;z=15" target="_blank" rel="noopener">Hodnocení Seznam</a>
           </div>
         </div>
         <div class="contact-line contact-subhead">
@@ -1436,9 +1421,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   const toggle = document.getElementById('menuToggle');
   const links = document.querySelector('nav.links');
-  toggle.addEventListener('click', () => {
-    const open = links.style.display === 'flex';
-    links.style.display = open ? 'none' : 'flex';
+
+  function isMenuOpen(){
+    return links.style.display === 'flex';
+  }
+  function openMenu(){
+    links.style.display = 'flex';
     links.style.flexDirection = 'column';
     links.style.position = 'absolute';
     links.style.top = '64px';
@@ -1448,7 +1436,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     links.style.padding = '16px 24px';
     links.style.gap = '16px';
     links.style.borderRadius = '4px';
-  });
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu(){
+    links.style.display = 'none';
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  if (toggle && links) {
+    toggle.setAttribute('aria-expanded', 'false');
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isMenuOpen()) { closeMenu(); } else { openMenu(); }
+    });
+
+    // kliknutí mimo menu ho zavře
+    document.addEventListener('click', (e) => {
+      if (isMenuOpen() && !links.contains(e.target) && !toggle.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // kliknutí na odkaz v menu
+    links.addEventListener('click', (e) => {
+      if (e.target.closest('a')) closeMenu();
+    });
+
+    // klávesa Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen()) closeMenu();
+    });
+
+    // přechod na desktop – zruší inline styly, aby se menu vrátilo do lišty
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860 && links.getAttribute('style')) {
+        links.removeAttribute('style');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHxvQ1uRk6rcEdFC_rXUMP0qkOJeTZZDr6WNxTBie809BLBKHeoUR6f65br3QRDaIN/exec';
 
