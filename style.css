@@ -748,6 +748,7 @@
     .gallery-grid.row-wide{grid-template-columns:repeat(2,1fr);}
     .gallery-item.portrait, .gallery-item.landscape{aspect-ratio:1/1;}
     .gallery-item.wide{grid-column:1 / -1;}
+    .shot.wide{grid-column:1 / -1;}
     .gallery-grid.row-trio{grid-template-columns:repeat(3,1fr); gap:8px;}
     .row-trio .gallery-item.landscape{aspect-ratio:4/3;}
     .shot figcaption{font-size:12px; margin-top:6px;}
