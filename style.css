@@ -384,8 +384,21 @@
   .gallery-grid.row-wide{
     grid-template-columns:calc(var(--unit) * 0.75) calc(var(--unit) * 0.75) calc(var(--unit) * 1.493);
     justify-content:center;
-    margin-top:16px;
   }
+  .gallery-grid + .gallery-grid{margin-top:16px;}
+  /* trojice před – během – po */
+  .gallery-grid.row-trio{
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+  }
+  .shot{margin:0;}
+  .shot figcaption{
+    margin-top:8px;
+    font-size:13px;
+    line-height:1.45;
+    color:var(--ink-soft);
+  }
+  .shot figcaption strong{color:var(--ink); font-weight:600;}
   /* ---------- ABOUT ---------- */
   .about{background:var(--bg-alt);}
   .about-inner{
@@ -735,11 +748,16 @@
     .gallery-grid.row-wide{grid-template-columns:repeat(2,1fr);}
     .gallery-item.portrait, .gallery-item.landscape{aspect-ratio:1/1;}
     .gallery-item.wide{grid-column:1 / -1;}
+    .gallery-grid.row-trio{grid-template-columns:repeat(3,1fr); gap:8px;}
+    .row-trio .gallery-item.landscape{aspect-ratio:4/3;}
+    .shot figcaption{font-size:12px; margin-top:6px;}
   }
   @media (max-width:480px){
     .process-grid{grid-template-columns:1fr;}
     .gallery-grid{grid-template-columns:1fr;}
     .gallery-grid.row-wide{grid-template-columns:1fr;}
+    .gallery-grid.row-trio{grid-template-columns:1fr; gap:16px;}
+    .shot figcaption{font-size:13px;}
     .gallery-item.portrait{aspect-ratio:3/4;}
     .gallery-item.landscape{aspect-ratio:4/3;}
     .cta-row{flex-direction:column; align-items:stretch;}
