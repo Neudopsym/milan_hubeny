@@ -1,0 +1,19 @@
+# Milan Hubený — malíř a zedník v Praze
+
+> Živnostník s více než 30 lety praxe. Malování bytů, pokojů a kanceláří, nátěry a obnova fasád, čištění fasád a odstranění graffiti, obklady, dlažby a drobné zednické opravy. Působnost Praha a okolí. Každou zakázku dělá osobně, bez subdodavatelů, cena se domlouvá po bezplatné prohlídce.
+
+Web je jednostránkový, všechny odkazy níže vedou na sekce téže stránky.
+
+## Klíčové sekce
+
+- [Služby](https://malir-zednik-praha.cz/#sluzby): seznam malířských a zednických prací včetně čištění fasád a odstranění graffiti
+- [Průběh zakázky](https://malir-zednik-praha.cz/#postup): od nezávazné poptávky přes bezplatnou prohlídku po předání
+- [O mně](https://malir-zednik-praha.cz/#o-mne): kdo Milan Hubený je a jak dlouho řemeslo dělá
+- [Ceník](https://malir-zednik-praha.cz/#cenik): orientační hodinová sazba a co cenu ovlivňuje
+- [Ukázky realizací](https://malir-zednik-praha.cz/#realizace): fotografie dokončených zakázek s uvedením městské části
+- [Časté dotazy](https://malir-zednik-praha.cz/#faq): 15 otázek včetně cen malování bytů podle velikosti a oprav posprejovaných fasád
+- [Kontakt](https://malir-zednik-praha.cz/#kontakt): telefon, e-mail, WhatsApp a odkazy na hodnocení
+
+## Optional
+
+- [Zásady ochrany osobních údajů](https://malir-zednik-praha.cz/zasady-ochrany-osobnich-udaju.html): zpracování údajů z kontaktního formuláře
