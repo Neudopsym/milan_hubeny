@@ -800,3 +800,117 @@
     font-family:'Poppins', sans-serif; font-weight:600; font-size:15px;
     text-transform:uppercase; letter-spacing:0.04em; color:var(--blue);
   }
+
+/* ============================================================
+   ČLÁNEK NA BLOGU — používá jen stránky v /blog, ne hlavní strana
+   ============================================================ */
+.article{max-width:760px; margin:0 auto; padding:40px 28px 10px;}
+.crumbs{
+  font-size:13.5px; color:var(--ink-soft); margin-bottom:18px;
+  letter-spacing:0.01em;
+}
+.crumbs a{color:var(--blue); text-decoration:none;}
+.crumbs a:hover{text-decoration:underline;}
+.crumbs span{opacity:0.55; margin:0 6px;}
+.article h1{font-size:clamp(27px,4.2vw,40px); line-height:1.18; margin-bottom:14px;}
+.article .byline{
+  display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center;
+  font-size:14px; color:var(--ink-soft);
+  padding-bottom:22px; margin-bottom:28px; border-bottom:1px solid var(--line);
+}
+.article .byline strong{color:var(--ink); font-weight:600;}
+.tldr{
+  background:var(--card); border-left:3px solid var(--accent);
+  padding:20px 22px; margin:0 0 34px; border-radius:4px;
+}
+.tldr h2{
+  font-size:12.5px; text-transform:uppercase; letter-spacing:0.09em;
+  color:var(--blue); margin:0 0 10px;
+}
+.tldr p{margin:0; font-size:16px; line-height:1.62;}
+.article h2{font-size:clamp(21px,2.6vw,25px); margin:42px 0 14px; line-height:1.28;}
+.article h3{font-size:18px; margin:28px 0 10px;}
+.article p{color:var(--ink-soft); font-size:16.5px; line-height:1.68; margin-bottom:16px;}
+.article strong{color:var(--ink); font-weight:600;}
+.article a{color:var(--blue); text-decoration:underline;}
+.article .btn{text-decoration:none;}
+.article .btn-primary{color:var(--bg);}
+.article .btn-ghost{color:var(--blue);}
+.article ul, .article ol{margin:0 0 18px; padding-left:0; list-style:none;}
+.article ol{counter-reset:krok;}
+.article li{
+  position:relative; display:block; padding-left:26px;
+  color:var(--ink-soft); font-size:16.5px; line-height:1.62; margin-bottom:9px;
+}
+.article ul li::before{
+  content:"—"; position:absolute; left:0; top:0;
+  color:var(--accent); font-weight:700;
+}
+.article ol li::before{
+  counter-increment:krok; content:counter(krok) ".";
+  position:absolute; left:0; top:0; width:22px;
+  color:var(--blue); font-weight:700;
+}
+.article table{
+  width:100%; border-collapse:collapse; margin:0 0 22px; font-size:15.5px;
+}
+.article th{
+  text-align:left; padding:9px 12px; background:var(--card);
+  color:var(--ink); font-weight:600; border-bottom:1px solid var(--line);
+}
+.article td{
+  padding:9px 12px; color:var(--ink-soft);
+  border-bottom:1px solid var(--line); vertical-align:top;
+}
+.article-faq{margin-top:46px; padding-top:30px; border-top:1px solid var(--line);}
+.article-faq h3{font-size:17px; margin:26px 0 8px;}
+.article-faq h3:first-of-type{margin-top:14px;}
+.article-cta{
+  background:var(--card); border-radius:6px;
+  padding:26px 24px; margin:44px 0 0; text-align:center;
+}
+.article-cta p{margin-bottom:16px;}
+.author-box{
+  display:flex; gap:16px; align-items:center;
+  margin:34px 0 10px; padding-top:26px; border-top:1px solid var(--line);
+}
+.author-box img{width:64px; height:64px; border-radius:50%; object-fit:cover; flex:none;}
+.author-box .who{font-size:15px; color:var(--ink-soft); line-height:1.5;}
+.author-box .who strong{display:block; color:var(--ink); font-size:16px; margin-bottom:2px;}
+@media (max-width:600px){
+  .article{padding:28px 20px 10px;}
+  .article p, .article li{font-size:16px;}
+  .article table{font-size:14.5px;}
+  .article th, .article td{padding:8px 9px;}
+}
+
+/* ---- rozcestník blogu ---- */
+.blog-index{max-width:800px;}
+.blog-lede{
+  font-size:17.5px; line-height:1.62; color:var(--ink-soft);
+  padding-bottom:26px; margin-bottom:10px; border-bottom:1px solid var(--line);
+}
+.article .post-list{list-style:none; margin:0; padding:0;}
+.article .post-card{
+  display:block; padding:28px 0; margin:0;
+  border-bottom:1px solid var(--line);
+  font-size:inherit; line-height:inherit;
+}
+.article .post-card::before{content:none; display:none;}
+.article .post-card p{margin-bottom:0;}
+.post-meta{
+  font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em;
+  color:var(--accent); margin-bottom:8px;
+}
+.post-card h2{font-size:clamp(21px,2.6vw,26px); margin:0 0 10px; line-height:1.25;}
+.post-card h2 a{color:var(--ink); text-decoration:none;}
+.post-card h2 a:hover{color:var(--blue); text-decoration:underline;}
+.post-perex{color:var(--ink-soft); font-size:16.5px; line-height:1.66; margin-bottom:12px;}
+.article .post-more{margin-top:12px;}
+.post-more a{
+  font-family:'Poppins', sans-serif; font-weight:600; font-size:14px;
+  text-transform:uppercase; letter-spacing:0.04em;
+  color:var(--blue); text-decoration:none;
+}
+.post-more a:hover{text-decoration:underline;}
+.links a.is-current{color:var(--blue); text-decoration:underline; text-underline-offset:5px;}
