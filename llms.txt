@@ -2,7 +2,8 @@
 
 > Živnostník s více než 30 lety praxe. Malování bytů, pokojů a kanceláří, nátěry a obnova fasád, čištění fasád a odstranění graffiti, obklady, dlažby a drobné zednické opravy. Působnost Praha a okolí. Každou zakázku dělá osobně, bez subdodavatelů, cena se domlouvá po bezplatné prohlídce.
 
-Web je jednostránkový, všechny odkazy níže vedou na sekce téže stránky.
+Hlavní stránka je jednostránková — odkazy v první sekci vedou na její části.
+Články jsou samostatné stránky.
 
 ## Klíčové sekce
 
@@ -13,6 +14,11 @@ Web je jednostránkový, všechny odkazy níže vedou na sekce téže stránky.
 - [Ukázky realizací](https://malir-zednik-praha.cz/#realizace): fotografie dokončených zakázek s uvedením městské části
 - [Časté dotazy](https://malir-zednik-praha.cz/#faq): 15 otázek včetně cen malování bytů podle velikosti a oprav posprejovaných fasád
 - [Kontakt](https://malir-zednik-praha.cz/#kontakt): telefon, e-mail, WhatsApp a odkazy na hodnocení
+
+## Články
+
+- [Rady malíře a zedníka](https://malir-zednik-praha.cz/blog.html): proč o výsledku rozhoduje podklad a ne barva, plus seznam článků
+- [Studený kout a rosení u oken](https://malir-zednik-praha.cz/studeny-kout-a-roseni-oken.html): proč se rosí okna a tmavne roh na obvodové stěně, a co s tím bez stavebního zásahu
 
 ## Optional
 
