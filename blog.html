@@ -45,6 +45,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "Plíseň na zdi: proč přemalování nepomůže",
+      "description": "Proč se plíseň po vymalování vrací a jak najít zdroj vlhkosti, který ji vytvořil.",
+      "url": "https://malir-zednik-praha.cz/blog/plisen-na-zdi.html",
+      "datePublished": "2026-11-12",
+      "author": { "@type": "Person", "name": "Milan Hubený" }
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "Studený kout a rosení u oken",
       "description": "Proč se rosí okna a tmavne roh na obvodové stěně a co s tím.",
       "url": "https://malir-zednik-praha.cz/blog/studeny-kout-a-roseni-oken.html",
@@ -105,6 +113,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <ul class="post-list">
     <li class="post-card">
+      <p class="post-meta"><time datetime="2026-11-12">12. listopadu 2026</time> · Vlhkost</p>
+      <h2><a href="blog/plisen-na-zdi.html">Plíseň na zdi: proč přemalování nepomůže</a></h2>
+      <p class="post-perex">Barva s fungicidem zabije to, co je na povrchu, ale nezmění podmínky, ve kterých plíseň vznikla. Tři zdroje vlhkosti, jak je od sebe poznat a co z toho plyne.</p>
+      <p class="post-more"><a href="blog/plisen-na-zdi.html">Číst článek</a></p>
+    </li>
+    <li class="post-card">
       <p class="post-meta"><time datetime="2026-11-11">11. listopadu 2026</time> · Vlhkost</p>
       <h2><a href="blog/studeny-kout-a-roseni-oken.html">Studený kout a rosení u oken</a></h2>
       <p class="post-perex">Rosí se vám okna a v rohu ložnice tmavne zeď? Není to vadné okno ani málo topení. Voda se sráží na místě, které je chladnější než zbytek stěny.</p>
@@ -128,7 +142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <!-- Plovoucí tlačítko kontaktu -->
-<button class="fab" id="contactFab" aria-label="Zobrazit kontakty" aria-expanded="false">
+<button class="fab is-visible" id="contactFab" aria-label="Zobrazit kontakty" aria-expanded="false">
   <svg class="fab-icon-chat" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-13 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg>
   <svg class="fab-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
 </button>
@@ -186,22 +200,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   if (fab && overlay) {
-    /* Na blogu není hero sekce jako na hlavní stránce — tlačítko se objeví,
-       jakmile z obrazovky zmizí nadpis stránky. */
-    const kotva = document.querySelector('main h1');
-    if (kotva) {
-      const nadpisObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            fab.classList.remove('is-visible');
-            closeOverlay();
-          } else {
-            fab.classList.add('is-visible');
-          }
-        });
-      }, { threshold: 0 });
-      nadpisObserver.observe(kotva);
-    }
+    /* Na blogu nejsou kontaktní tlačítka v ploše jako v hero sekci
+       hlavní stránky, takže tu je plovoucí tlačítko vidět pořád. */
+    fab.classList.add('is-visible');
 
     fab.addEventListener('click', () => {
       overlay.classList.contains('is-open') ? closeOverlay() : openOverlay();
