@@ -850,6 +850,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
 
         poptavkaForm.reset();
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'click_mail_form' });
         status.textContent = 'Děkuji, zpráva byla odeslána. Ozvu se vám co nejdříve.';
         status.className = 'form-status is-visible ok';
       } catch (err) {
