@@ -18,6 +18,7 @@ Hlavní stránka je jednostránková — odkazy v první sekci vedou na její č
 ## Články
 
 - [Rady malíře a zedníka](https://malir-zednik-praha.cz/blog.html): proč o výsledku rozhoduje podklad a ne barva, plus seznam článků
+- [Barva se loupe ze zdi: proč a co s tím](https://malir-zednik-praha.cz/blog/loupe-se-barva-ze-zdi.html): čtyři příčiny odlupování nátěru, tři zkoušky na jejich rozlišení a postup opravy
 - [Do jaké výšky obkládat koupelnu a kde začít malovat](https://malir-zednik-praha.cz/blog/vyska-obkladu-v-koupelne.html): kde obklad musí být, kde stačí barva a jak vyřešit přechod mezi nimi
 - [Plíseň na zdi: proč přemalování nepomůže](https://malir-zednik-praha.cz/blog/plisen-na-zdi.html): proč se plíseň po vymalování vrací, tři zdroje vlhkosti a jak je od sebe poznat
 - [Studený kout a rosení u oken](https://malir-zednik-praha.cz/blog/studeny-kout-a-roseni-oken.html): proč se rosí okna a tmavne roh na obvodové stěně a co s tím
